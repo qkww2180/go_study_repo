@@ -7,9 +7,15 @@ import (
 )
 
 func main10() {
-	// c, d := 3, 5
-	// arg3(&c, &d)
-	// fmt.Println(c, d)
+	c, d := 3, 5
+	arg1(c, d)
+	arg2(c, d)
+	arg3(&c, &d)
+	return1(c, d)
+	return2(c, d)
+	return3()
+	variable_ength_arg(c, d, 5)
+	fmt.Println(c, d)
 	fmt.Println(sum(1, 2, 3, 4)) //10
 	fmt.Println(sum(1))          //1
 	fmt.Println(sum())           //0

@@ -83,7 +83,7 @@ func switch_condition() {
 }
 
 // fallthrough 强制执行下一个case（或default）
-func fall_throth(age int) {
+func fall_through(age int) {
 	fmt.Printf("您的年龄是%d, 您可以：\n", age)
 	switch {
 	case age > 50:
@@ -154,6 +154,6 @@ func main8() {
 	switch_basic()
 	switch_expression()
 	switch_condition()
-	fall_throth(20)
-	// switch_type()
+	fall_through(20)
+	switch_type()
 }
