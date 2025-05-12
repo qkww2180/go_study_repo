@@ -1,10 +1,10 @@
 package main
 
 import (
-	"dqq/go/basic/basic/oip/common"
-	"dqq/go/basic/basic/oip/filter"
-	"dqq/go/basic/basic/oip/recall"
-	"dqq/go/basic/basic/oip/sort"
+	"dqq/go/basic/type_func/oip/common"
+	"dqq/go/basic/type_func/oip/filter"
+	"dqq/go/basic/type_func/oip/recall"
+	"dqq/go/basic/type_func/oip/sort"
 	"fmt"
 	"time"
 
@@ -53,7 +53,7 @@ func (rec *Recommender) Rec() []*common.Product {
 	return FilteredResult
 }
 
-func main() {
+func main01() {
 	rec := Recommender{
 		//每种具体的实现可能是由不同的开发者完成。每种实现单独放一个文件，大家的代码互不干扰
 		Recallers: []recall.Recaller{
