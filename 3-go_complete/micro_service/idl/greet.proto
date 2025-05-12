@@ -1,0 +1,36 @@
+syntax="proto3";
+
+package idl;
+option go_package="./micro_service/idl;idl";
+
+// 如果想使用option (google.api.http)就需要引用google/api/annotations.proto，在google/api/annotations.proto中又引用了2个proto文件：google/api/http.proto和google/protobuf/descriptor.proto，所有这些proto文件都去-I指定的路径下找
+import "google/api/annotations.proto";
+
+message GreetRequest{
+    string name = 1;
+}
+
+message GreetResopnse{
+    string message = 1;
+}
+
+service HelloHttp{
+    rpc Greeting(GreetRequest) returns (GreetResopnse){
+        option (google.api.http) = {
+            post: "/golang/hello"       //post请求方式，/golang/hello是请求路径
+            body: "*"   //未被路径模板绑定的每个字段都应映射到请求体
+        };
+    }
+}
+
+
+// 安装protoc-gen-grpc-gateway工具
+// go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+// go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+
+// 下载annotations包
+// go get github.com/googleapis/googleapis
+
+// 根据proto文件生成pb.go和pb.gw.go文件
+// protoc -I="D:/Program Files/third_go/pkg/mod/github.com/googleapis/googleapis@v0.0.0-20230703100848-5b2d46f59088" --go_out=. --go-grpc_out=. --grpc-gateway_out=. --proto_path=./micro_service/idl greet.proto
+

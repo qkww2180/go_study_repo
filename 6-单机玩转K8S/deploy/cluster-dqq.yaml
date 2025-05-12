@@ -1,0 +1,15 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: dqq
+nodes:
+  - role: control-plane    # 控制平面在逻辑上只有一个，但物理节点可以有多个，一般为奇数个
+    extraPortMappings:
+    - containerPort: 80
+      hostPort: 80
+      protocol: TCP
+    - containerPort: 443
+      hostPort: 443
+      protocol: TCP
+  - role: worker     # 工作节点
+  - role: worker
+  - role: worker

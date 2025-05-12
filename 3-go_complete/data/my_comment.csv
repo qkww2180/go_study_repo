@@ -1,0 +1,38 @@
+2024-06-13 12:53:37|287969457|墨竹Mozhu_|男|傲慢且无知[笑哭]|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-13 10:05:33|1473695387|无脑干雷打不动|男|py这么猛|TIOBE指数6月排名，Go语言创历史新高|https://www.bilibili.com/video/BV1vn4y1Q7Cp
+2024-06-13 08:10:49|1083326485|GGbond忧悠我心|保密|go的错误处理确实烦人，本来我写个方法只想处理一次错误，结果全是if！=nil，其实错误应该分级，还是JAVA舒服，spring直接用advice或aop就完事了，无论是合并还是分离处理错误都很方便|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-13 07:28:39|388115053|jdjcucjskw|男|牛逼|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-13 00:42:54|653985|努力的魔芋酱|保密|我特么直接 _|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-13 00:36:49|37476291|KingVstr|保密|首先,go的error做的确实不好, 但也是形式上的比如rust的?, 那也比你那异常好用, 异常处理又不是标准|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-12 23:45:57|52204956|不动声色的舔狗|男|有多少组件用java写的你知道吗|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-12 23:05:17|470930942|_eashion_|保密|回复 @bytesbyte :你小子是在反向黑吧|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-12 23:03:18|470930942|_eashion_|保密|不懂别乱叫|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-12 22:04:03|355635046|MRZHAO01|男|同感。开源项目代码 层层调用，就像地表查到地壳|接口到底有啥用|https://www.bilibili.com/video/BV1az421h72w
+2024-06-12 21:43:25|341363358|一般CPP教徒|男|继承一个只有纯虚函数的类。[doge]|interface{}将成为历史|https://www.bilibili.com/video/BV13V4y1y7jE
+2024-06-12 21:36:43|341363358|一般CPP教徒|男|回复 @码农冰 :有的，IEnumerator就能实现协程。
+Unity那种。[doge]|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-12 16:49:51|5978867|SliverHorn|女|回复 @高性能golang : 我知道了，Is和As都可以，查漏补缺了，谢谢。但是我一般用github.com/pkg/errors， 用里面的Wrap和Wrap，然后在handle通过fmt.Printf("%+v", err)打印|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-12 16:25:35|5978867|SliverHorn|女|不是errors.As 吗？|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-12 14:03:04|495359106|花鸟鱼虫天然趣|保密|高端啊，我一般只用err!=nil[尴尬]|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-12 13:21:44|1473695387|无脑干雷打不动|男|啥时候直播答疑？|重新自我介绍一下|https://www.bilibili.com/video/BV19D421M725
+2024-06-12 12:54:33|254603057|丁佑强|保密|[星星眼][doge]支持老师|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-12 11:18:19|103320806|zigit|保密|偷懒没有做异常处理的残废语言，最好的方式就是定义一个结构，里面有message，stacklink，source，uuberror，然后自己实现异常处理机制。其实残废go不能重载运算符，不能重载函数也是相当操蛋，除了这个，还有一个更操蛋的，就是实现不能指定哪个接口，同函数名就算实现了，一旦我有2个同名函数的接口，需要不同实现那就操蛋了，现在有泛型了稍微好一点，一开始没有泛型更恶心，偷懒没做好就要找借口说这是“设计如此”皇帝的新衣。|征服Error：Error处理的4重境界|https://www.bilibili.com/video/BV1RM4m1U7eS
+2024-06-11 21:20:13|35962719|ddannisser|保密|回复 @gygygfg :哪有这么简单|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-11 16:12:10|482910432|bili_86111041528|保密|安全性太差|深刻理解切片的本质|https://www.bilibili.com/video/BV1Wm411R7w4
+2024-06-11 09:40:04|111191303|早柚今天长高了捏OvO|男|回复 @万象宝轮 :你要看是什么项目，业务系统 go 确实不行[吃瓜]|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-11 09:38:25|111191303|早柚今天长高了捏OvO|男|回复 @无敌的小兵丶 :乱是指 if err！= nil 吧|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-11 03:29:00|252420966|迷岛啊q|保密|我原本以为只有cpp才有魔怔人，没想到啥语言都有。那么我就要认为cpp天下第一了哦[星星眼][星星眼]|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-10 20:54:18|353980138|gygygfg|女|回复 @ddai小呆呆 :你用其他语言开发完了用AI转成go不就行了|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-10 16:26:41|270056743|emerson-|保密|因为早期没有跟上开源节奏，丢失了生态|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-10 14:43:47|250959031|ddai小呆呆|男|go程序员开发成本不便宜[吃瓜]|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-10 01:38:59|480369060|尘世mei|保密|回复 @p3p3pp3 :Task|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-10 00:02:43|3494367396366897|AI大师2333|保密|回复 @辞家汉将 :懂哥来了，不懂乱云|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-10 00:02:11|3494367396366897|AI大师2333|保密|java性能是所有语言里最啦的，现在都不如php和python|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-09 23:24:23|451987957|四格句号|保密|Python asyncio给我写晕了|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-09 22:02:27|424088639|aha45|保密|效益好时物以稀为贵，效益不好谁最老实先开谁，反正你也不会闹。|你的工资由什么决定|https://www.bilibili.com/video/BV1jm421V7zr
+2024-06-09 13:29:06|162488878|-CYLIX-|保密|回复 @bytesbyte : 说反了吧。。。|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-08 23:17:17|5754720|御坂13288号|女|回复 @御坂13288号 :理论上你用其他语言实现go的runtime库的核心部分 gmp gc channel等部分。 你也可以使用go的精髓部分了。  （个人理解go语言最大特色就是对 gmp模型与channel的机制了）|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-08 23:08:26|5754720|御坂13288号|女|回复 @bytesbyte :go应该叫运行时库 库名就叫runtime。程序编译的真正编译入口是porc.go（文件名可能打错了）下的main 函数，这个文件还定义了一个main_main函数 并用 go:link 到了我们写的mian.mian函数 。  在porc.go里的main函数启启动了gmp模型  运行gc  强制协程切换的协程之后 才调用main.main并在main.main结束后调用exit结束程序。（好像说了一段像是spring boot启动机制一样没意义的八股文）|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-08 23:02:59|470686978|哒哒达叶|保密|回复 @bytesbyte : jvm是什么|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-08 22:47:37|16654080|bytesbyte|保密|回复 @哒哒达叶 :java是运行时，不是虚拟机|go协程 & Java虚拟线程 试验对比|https://www.bilibili.com/video/BV1hr421A7X8
+2024-06-08 22:36:25|470686978|哒哒达叶|保密|回复 @万象宝轮 : 为啥不能比|go协程 & Java虚拟线程 试验对比|https://www.bilibili

@@ -1,0 +1,31 @@
+apiVersion: apps/v1   
+kind: Deployment 
+
+metadata:  
+  name: dep-blog  # deploy的名称
+  labels:     # deploy的标签
+    app: blog 
+
+spec:   
+  replicas: 2   # pod副本数目
+  selector:    # 匹配什么样的pod
+    matchLabels:
+      app: blog
+
+  template:   # 设置pod信息
+    metadata:
+      labels:  # pod的标签
+        app: blog 
+    spec:   
+      containers:   # pod里包含哪些容器
+        - name: blog   # 容器名称
+          image: blog:v1.0.0  # 容器里运行哪个镜像
+          imagePullPolicy: IfNotPresent   # 镜像拉取策略10m
+          resources:
+            requests:    # 控制该pod对硬件资源的利用
+              cpu: 10m  # 1个CPU核是1000m，10m相当于0.01个CPU
+      # nodeSelector:   # pod部署到哪些节点上
+      #   ls: "true"     # 加引号，把bool转为string
+
+
+# deployment --> pod --> container --> image  

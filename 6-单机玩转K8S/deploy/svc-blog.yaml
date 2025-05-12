@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: svc-blog    # service名称
+
+spec:
+  type: ClusterIP # service类型。ClusterIP即service提供一个k8s的虚拟IP，在k8s内部通过该虚拟IP来访问服务。不管pod所处的节点如何变化，该IP是固定的
+  ports:
+    - name: http
+      port: 5678    # 外界访问使用的端口
+      targetPort: 5678    # 代码里使用的端口
+      protocol: TCP
+  selector: # 该service匹配哪些pod
+    app: blog # 指定pod标签

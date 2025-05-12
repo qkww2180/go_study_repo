@@ -1,0 +1,22 @@
+syntax="proto3";	//采用protobuffer V3版本的语法编写
+
+package idl.model;	//包名可以包含.但不能包含/。其他proto引用此proto时需要指定package，对生成的go代码没有影响
+
+option go_package = "idl/model;grpc_model";	//分号前面是生成的go文件所在的路径，用--go_out指定的路径和这个路径拼接起来。分号后面是生成的go文件package名称
+// option go_package = "idl/model/grpc_model";   //指定生成的go文件所在的路径，需要让--go_out指定的路径和这个路径拼接起来，最后一级路径的名称也是生成的go文件package名称
+
+message student {  //等同于go语言的struct，转成go代码后会变为驼峰形式
+	string name = 2;	// 变量名的驼峰形式就是go里的成员变量名。后面的数字来用来作pb序列化，每个成员变量对应的数字需要唯一
+    int64 id = 1;
+	repeated string locations = 4;	//repeated表示list（对应go语言的切片）
+	map<string,float> scores = 3;	//map
+	bool gender = 5;
+	int32 age = 6;		
+	float score = 7;	//对应go语言的float32，不支持float64
+}
+
+// protoc --go_out=./grpc --proto_path=./grpc/idl/model student.proto
+// --go_out指定go文件的输出目录，需要跟go_package里的路径连接起来
+// --proto_path指定proto文件的路径，而proto文件部分也可以带一点路径，两者需要连接起来。--proto_path可以有多个
+// 生成的go代码里会import google.golang.org/protobuf，可以执行一下go mod tidy把依赖的module下载下来
+// 命令中的=也可以用空格代替

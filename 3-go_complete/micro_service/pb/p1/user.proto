@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package p3;     //在其他.proto文件中想使用User时，需要在User前加p3.
+
+option go_package = "model";     // 不包含分号，此时model表示生成的go文件的package名称
+
+message User{
+    int64 Id = 1;
+    string Name = 2;
+}
+
+// protoc --gogofaster_out=./micro_service/pb/p1 --proto_path=./micro_service/pb/p1 user.proto

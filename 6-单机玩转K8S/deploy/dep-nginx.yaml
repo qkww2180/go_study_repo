@@ -1,0 +1,26 @@
+apiVersion: apps/v1   # API group/version
+kind: Deployment  # 部署Pod的行为抽象。尽量避免直接创建Pod和RC/RS，而使用Deployment来完成Pod和RS的创建和使用
+
+metadata:   # resource的唯一标识。（k8s中一切皆resource， 类似于Linux中的文件）
+  name: nginx   # deployment的名称
+  # namespace:   # 可选。不同namespace之间，resource是互相隔离的。namespace可以认为是一个虚拟的k8s集群，一个namespace下所有resource的名称是唯一的
+  labels:   # 给deployment打标签
+    app: nginx 
+
+spec:   # deployment的详情描述
+  replicas: 1   # 几个副本
+  selector:     # 匹配pod的条件
+    matchLabels:  # 一个节点可以有多个标签，按照标签匹配选中一批节点
+      app: nginx    # 标签的name和value
+  template:   # 设置pod的信息
+    metadata:
+      labels:  # 给pod打标签
+        app: nginx 
+    spec:   # pod的详情描述
+      containers:   # 容器是一个隔离的程序运行环境。一个pod里可以部署多个容器
+        - name: nginxweb      # 容器名称。-表示数组
+          image: nginx:latest   # 容器镜像（冒号后面是tag，即版本号）
+          imagePullPolicy: IfNotPresent   # 镜像拉取策略
+      nodeSelector:   # 选择部署在哪些Node（节点）上
+        mylabelname: mylabelvalue     # 根据label来强行指定把pod部署到哪个节点上。nodename是标签名称，node2是标签值。给节点打标签的命令为：kubectl label nodes $节点名称 $标签名称=$标签值
+  

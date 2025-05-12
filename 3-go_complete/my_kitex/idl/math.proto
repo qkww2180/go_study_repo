@@ -1,0 +1,34 @@
+syntax="proto3";
+
+package idl;    // proto文件互相引用时需要指定package。不需要相互引用时，这一行可以不写
+option go_package="math_service";    //生成go文件后对应的package名，kitex要求必须写go_package
+
+message AddRequest {
+    int32 left = 1;
+    int32 right = 2;
+}
+
+message AddResponse {
+    int32 sum = 1;
+}
+
+message SubRequest {
+    int32 left = 1;
+    int32 right = 2;
+}
+
+message SubResponse {
+    int32 diff = 1;
+}
+
+service Math {
+    rpc Add(AddRequest) returns (AddResponse);
+    rpc Sub(SubRequest) returns (SubResponse);
+}
+
+// 先安装kitex工具  
+// go install github.com/cloudwego/kitex/tool/cmd/kitex@latest
+// kitex -module my_kitex idl/math.proto
+// 会生成一个kitex_gen目录，import语句里需要用到module名称
+// math.pb.go是官方的pb工具生成的，math.pb.fast.go是字节自家的fastpb工具生成的，math.pb.fast.go是对math.pb.go的补充
+// 执行一下go mod tidy

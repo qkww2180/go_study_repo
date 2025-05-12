@@ -1,0 +1,25 @@
+syntax="proto3";	//采用protobuffer V3版本的语法编写
+
+option go_package="./idl;student_service";	//分号前面是生成的go文件所在的路径(该路径不存在时会自动创建)，.指的是--go_out指定的路径(即go文件实际的存放路径为./micro_service/pb/idl)，分号后面是生成的go文件package名称。分号前的部分也可以不写
+
+message Student {  					//等同于go语言的struct
+	string name = 1;				// 变量名的驼峰形式就是go里的成员变量名。后面的数字来用来作pb序列化，每个成员变量对应的数字需要唯一
+    int64 created_at = 2;  			// 对应的驼峰形式是CreatedAt
+	repeated string Locations = 4;	//repeated表示list
+	map<string,float> Scores = 3;	//map
+	bool Gender = 5;    			//性别
+	int32 Age = 6[deprecated = true];     // 不再维护的字段，为了兼容老版本先不删除
+	float Height = 7;				//转成go语言是float32
+}
+
+// protoc --go_out=./micro_service/pb/std/ --proto_path=./micro_service/pb/ student.proto
+// 等价于 
+// protoc --go_out=./micro_service/pb/std/ ./micro_service/pb/student.proto
+// --proto_path默认是当前目录，--go_out即使是当前目录也需要显示指定--go_out=. ,--go_out目录需要先创建好
+
+// gogofaster序列化性能比google官方的要高
+// protoc --gogofaster_out=./micro_service/pb/gogofaster/ --proto_path=./micro_service/pb/ student.proto
+// 命令中的=也可以用空格代替
+
+// bytedance fastpb
+// protoc --go_out=./micro_service/pb/std/ --fastpb_out=./micro_service/pb/std/ --proto_path=./micro_service/pb/ student.proto

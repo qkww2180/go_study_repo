@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: svc-search    # service名称
+
+spec:
+  type: ClusterIP # service类型。ClusterIP即service提供一个k8s的虚拟IP，在k8s内部通过该虚拟IP来访问服务
+  ports:
+    - name: http
+      port: 5660
+      targetPort: 5660
+      protocol: TCP
+  selector: # 该service匹配哪些pod
+    app: search # 指定pod标签

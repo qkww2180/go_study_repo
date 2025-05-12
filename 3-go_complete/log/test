@@ -1,0 +1,4 @@
+[INFO] 2024/01/15 06:43:22 util/logger/logger_test.go:9 trainId=123456789 hello golang
+[ERROR] 2024/01/15 06:43:22 util/logger/logger_test.go:14 trainId=123456789 hello world
+[INFO] 2024/01/15 06:43:22 util/logger/logger_test.go:9 trainId=abcdefg hello golang
+[ERROR] 2024/01/15 06:43:22 util/logger/logger_test.go:14 trainId=abcdefg hello world

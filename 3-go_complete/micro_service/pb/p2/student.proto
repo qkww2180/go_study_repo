@@ -1,0 +1,23 @@
+syntax="proto3";
+
+option go_package="p2";   // 不包含;，此时p2表示生成的go文件的package名称
+
+import "micro_service/pb/p1/user.proto";    // 从-I指定的目录下寻找该proto文件
+import "google/protobuf/timestamp.proto";  
+
+message Student{
+    float Score = 1;
+    repeated p3.User Friends = 2;           // 如果两个.proto位于同一个package下，import还需要写，只是User前就不需要带包名了
+    string Name = 3[deprecated = true];     // 不再维护的字段，为了兼容老版本先不删除
+    google.protobuf.Timestamp Birthday = 4;	 
+}
+
+
+/*
+protoc --gogofaster_opt=Mmicro_service/pb/p1/user.proto=dqq/micro_service/pb/p1 --gogofaster_opt=Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types --gogofaster_out=./micro_service/pb/p2 -I=D:/go_project/daqiaoqiao_golang -I="D:/Program Files/third_go/pkg/mod/github.com/gogo/protobuf@v1.3.2/protobuf" --proto_path=./micro_service/pb/p2 student.proto
+
+--gogofaster_opt=M指示了.proto里的import转到.go里该怎么写，比如.proto里写import "micro_service/pb/p1/user.proto"，转到.go里就应该写 import "dqq/micro_service/pb/p1"
+--gogofaster_opt=M可以有多个
+-I可以有多个。在windows上-I需要指定绝对路径，否则报错–proto_path passed empty directory name
+使用google官方的转换工具时把gogofaster_替换成go_，比如--go_opt=、--go_out=
+*/

@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: hpa-blog
+
+spec:
+  maxReplicas: 5  # 最多5个副本
+  minReplicas: 2  # 最少2个副本
+  scaleTargetRef:  # 描述监控的目标是谁
+    apiVersion: apps/v1
+    kind: Deployment
+    name: dep-blog
+  targetCPUUtilizationPercentage: 50    # 如果达到分配给它的CPU利用率的50%就自动扩容

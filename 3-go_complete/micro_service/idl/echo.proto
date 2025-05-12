@@ -1,0 +1,19 @@
+syntax="proto3";
+
+option go_package="./micro_service/idl;idl";
+
+message EchoRequest {
+    string Data = 1;
+}
+
+message EchoResponse {
+    string Data = 1;
+}
+
+service Echo {
+    rpc Hello(EchoRequest) returns (EchoResponse);
+    // Client streaming RPC 
+    rpc StreamHello(stream EchoRequest) returns (EchoResponse);
+}
+
+// protoc --go_out=. --go-grpc_out=. --proto_path=./micro_service/idl echo.proto

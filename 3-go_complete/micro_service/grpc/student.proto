@@ -1,0 +1,47 @@
+syntax="proto3";	
+
+option go_package="./;student_service";	
+
+message Student {  					
+	string name = 1;				    //姓名
+    int64 created_at = 2;  			    //创建时间
+	repeated string Locations = 4;	    //区域
+	map<string,float> Scores = 3;	    //考试成绩
+	bool Gender = 5;    			    //性别
+	int32 Age = 6[deprecated = true];   //年龄
+	float Height = 7;				    //身高
+    int32 Id = 8;                       //学生ID
+}
+
+message Students { 
+    repeated Student Data = 1;
+}
+
+message StudentID{
+    int32 Id = 1;  
+}
+
+message StudentIDs{
+    repeated int32 Ids = 1;  
+}
+
+service StudentService{
+    // Unary RPC 
+    rpc GetStudent(StudentID) returns (Student);
+    rpc GetStudents(StudentIDs) returns (Students);
+    // Server streaming RPC
+    rpc GetStudents2(StudentIDs) returns (stream Student);
+    // Client streaming RPC 
+    rpc GetStudents3(stream StudentID) returns (Students);
+    // Bidirectional streaming RPC
+    rpc GetStudents4(stream StudentID) returns (stream Student);
+}
+
+// protoc --go_out=./micro_service/grpc --proto_path=./micro_service/grpc student.proto
+// protoc --go_out=./micro_service/grpc --go-grpc_out=./micro_service/grpc --proto_path=./micro_service/grpc student.proto        生成student.pb.go和student_grpc.pb.go两个文件
+// 
+// 早些年使用github.com/golang/protobuf/protoc-gen-go时，使用的命令是：
+// protoc --go_out=plugins=grpc:./micro_service/grpc --proto_path=./micro_service/grpc student.proto
+// 
+// protoc --gogofaster_out=./micro_service/grpc --proto_path=./micro_service/grpc student.proto    生成的go代码仅对message完成序列化，不包含service
+// protoc --gogofaster_out=plugins=grpc:./micro_service/grpc --proto_path=./micro_service/grpc student.proto      只生成student.pb.go一个文件

@@ -1,0 +1,49 @@
+syntax="proto3";
+
+package idl.service;
+
+option go_package = "idl/service;grpc_service";
+
+import "model/student.proto";   //用--proto_path指定的路径和这个路径拼接起来（--proto_path可以有多个）
+
+message QueryStudentRequest{
+    int64 Id = 1;
+    string name = 2;
+    int32 PageSize = 3;
+    int32 PageNo = 4;
+}
+
+message QueryStudentResponse{
+    repeated idl.model.student Students = 1;
+}
+
+message StudentIds{
+    repeated int64 Ids = 1;
+}
+
+message StudentId{
+    int64 Id = 1;
+}
+
+service student{
+    // Unary RPC 
+    rpc QueryStudent(QueryStudentRequest) returns (QueryStudentResponse);
+    rpc QueryStudents1(StudentIds) returns (QueryStudentResponse);
+     // Server streaming RPC
+     rpc QueryStudents2(StudentIds) returns (stream idl.model.student);
+     // Client streaming RPC 
+     rpc QueryStudents3(stream StudentId) returns (QueryStudentResponse);
+     // Bidirectional streaming RPC
+     rpc QueryStudents4(stream StudentId) returns (stream idl.model.student);
+
+}
+
+// protoc --go_out=./grpc --proto_path=./grpc/idl/service --proto_path=./grpc/idl --proto_path=./grpc/idl/include/ student_service.proto 
+// --proto_path可以有多个，要转码的proto文件的import里指定的proto文件都从--proto_path下去找
+
+// protoc --go_out=./grpc --proto_path=./grpc/idl/service --proto_path=./grpc/idl --proto_path=./grpc/idl/include/ student_service.proto --go_opt=Mmodel/student.proto=dqq/go/basic/grpc/idl/model
+// --go_opt=M M表示Modify修改，指示.proto文件里的imoprt转成.go文件后import该怎么写。--go_opt=M可以有多个
+
+// protoc --go_out=plugins=grpc:./grpc --proto_path=./grpc/idl/service --proto_path=./grpc/idl --proto_path=./grpc/idl/include/ student_service.proto --go_opt=Mmodel/student.proto=dqq/go/basic/grpc/idl/model 
+// --go_out里加一个plugins=grpc会把.proto文件里的service转成.go文件里的interface
+// 生成的go代码里会import google.golang.org/grpc，可以执行一下go mod tidy把依赖的module下载下来

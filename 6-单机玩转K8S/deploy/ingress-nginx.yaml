@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /blog
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-blog
+            port:
+              number: 5678      # 节点的工作端口号
+      - path: /lottery
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-lottery
+            port:
+              number: 5679      # 节点的工作端口号
+      

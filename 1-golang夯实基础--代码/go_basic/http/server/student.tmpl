@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>学生信息</title>
+    <style>
+        table {
+            width: 400px;
+            margin: 0 auto;
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #000000;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>成绩</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Id}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Gender}}</td>
+            <td>{{.Score}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+
+</html>

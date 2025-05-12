@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package idl.model;
+
+option go_package = "./idl/model;grpc_model";
+
+message user { 
+    int64 id=1;
+    string name=2;
+    string gender=3;
+}
+
+// protoc --go_out=./grpc --proto_path=./grpc/idl/model user.proto
