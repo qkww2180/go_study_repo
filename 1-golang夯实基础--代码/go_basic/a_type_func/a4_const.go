@@ -80,4 +80,5 @@ func main4() {
 		)
 		fmt.Printf("a=%d, b=%d, c=%d, d=%d, e=%d, f=%d\n", a, b, c, d, e, f)
 	}
+	ellop()
 }

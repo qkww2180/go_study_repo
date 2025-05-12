@@ -11,9 +11,10 @@ import "fmt"
 // Excel的最后一列编号是XFD，请问Excel总共多少列？
 //
 // 这是26进制
-// if x < 8 {
-//     a = b
-// }
+//
+//	if x < 8 {
+//	    a = b
+//	}
 func main3() {
 	fmt.Printf("A=%d Z=%d\n", 'A', 'Z')
 	var base int = 'Z' - 'A' + 1 // 进制

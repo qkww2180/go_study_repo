@@ -1,10 +1,10 @@
 package main
 
 import (
-	"dqq/go/basic/type_func/oip/common"
-	"dqq/go/basic/type_func/oip/filter"
-	"dqq/go/basic/type_func/oip/recall"
-	"dqq/go/basic/type_func/oip/sort"
+	"dqq/go/basic/a_type_func/oip/common"
+	"dqq/go/basic/a_type_func/oip/filter"
+	"dqq/go/basic/a_type_func/oip/recall"
+	"dqq/go/basic/a_type_func/oip/sort"
 	"fmt"
 	"time"
 
