@@ -6,7 +6,7 @@ import "net/http"
 第一种方式：传统的面向接口编程
 */
 
-//搜索引擎类
+// 搜索引擎类
 type SearchEngine struct {
 	Recallers []Recaller //召回，得到搜索结果
 	Sorter    Sorter     //对召回结果进行排序
@@ -20,17 +20,17 @@ type Sorter interface {
 	Sort([]int) []int
 }
 
-//具体的召回策略
+// 具体的召回策略
 func r() []int {
 	return nil
 }
 
-//具体的排序策略
+// 具体的排序策略
 func s([]int) []int {
 	return nil
 }
 
-//Rec类实现了Recaller接口
+// Rec类实现了Recaller接口
 type Rec struct{}
 
 func (Rec) Recall() []int {
@@ -56,7 +56,7 @@ func main2() {
 	_ = se
 
 	//用http.Handle实现路由
-	http.Handle("/", http.HandlerFunc(Boy)) //http.HandlerFunc类似于FT，它实现了http.Handler接口
+	http.Handle("/", http.HandlerFunc(Boy)) //h_http.HandlerFunc类似于FT，它实现了http.Handler接口
 }
 
 /*
@@ -73,12 +73,12 @@ type SearchEngine2 struct {
 type RecallType func() []int
 type SortType func([]int) []int
 
-//RecallType类实现了Recaller接口
+// RecallType类实现了Recaller接口
 func (rt RecallType) Recall() []int {
 	return rt()
 }
 
-//SortType类实现了Sorter接口
+// SortType类实现了Sorter接口
 func (st SortType) Sort(arg []int) []int {
 	return st(arg)
 }

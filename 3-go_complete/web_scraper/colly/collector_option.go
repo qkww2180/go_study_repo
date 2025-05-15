@@ -108,11 +108,11 @@ func init() {
 	// go func() {
 	// 	for {
 	// 		// 从scrapeops.io获取伪造的header，免费且无调用次数限制
-	// 		if resp, err := http.Get("https://headers.scrapeops.io/v1/browser-headers?api_key=" + SCRAPEOPS_KEY + "&num_headers=10"); err != nil {
+	// 		if resp, err := h_http.Get("https://headers.scrapeops.io/v1/browser-headers?api_key=" + SCRAPEOPS_KEY + "&num_headers=10"); err != nil {
 	// 			log.Printf("get header failed: %v", err)
 	// 		} else {
 	// 			defer resp.Body.Close()
-	// 			if content, err := io.ReadAll(resp.Body); err == nil {
+	// 			if content, err := j_io.ReadAll(resp.Body); err == nil {
 	// 				var sr ScrapeopsResponse
 	// 				if err = sonic.Unmarshal(content, &sr); err != nil {
 	// 					log.Printf("Unmarshal ScrapeopsResponse failed: %v", err)

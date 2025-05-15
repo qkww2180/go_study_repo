@@ -9,17 +9,17 @@ create table if not exists inventory(
     count int not null default 0 comment '库存量',
     primary key (id)
 )default charset=utf8mb4 comment '奖品库存表，所有奖品在一次活动中要全部发出去';
-insert into inventory (id,name,picture,price,count) values (1,'谢谢参与','img/face.png',0,0);
+insert into inventory (id,name,picture,price,count) values (1,'谢谢参与','z_img/face.png',0,0);
 insert into inventory (name,picture,price,count) values 
-('篮球','img/ball.jpeg',100,1000),
-('水杯','img/cup.jpeg',80,1000),
-('电脑','img/laptop.jpeg',6000,200),
-('平板','img/pad.jpg',4000,300),
-('手机','img/phone.jpeg',5000,400),
-('锅','img/pot.jpeg',120,1000),
-('茶叶','img/tea.jpeg',90,1000),
-('无人机','img/uav.jpeg',400,100),
-('酒','img/wine.jpeg',160,500);
+('篮球','z_img/ball.jpeg',100,1000),
+('水杯','z_img/cup.jpeg',80,1000),
+('电脑','z_img/laptop.jpeg',6000,200),
+('平板','z_img/pad.jpg',4000,300),
+('手机','z_img/phone.jpeg',5000,400),
+('锅','z_img/pot.jpeg',120,1000),
+('茶叶','z_img/tea.jpeg',90,1000),
+('无人机','z_img/uav.jpeg',400,100),
+('酒','z_img/wine.jpeg',160,500);
 create table if not exists orders(
     id int auto_increment comment '订单id，自增',
     gift_id int not null comment '商品id',

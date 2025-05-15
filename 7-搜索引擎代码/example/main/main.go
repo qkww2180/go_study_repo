@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	mode         = flag.Int("mode", 1, "启动哪类服务。1-standalone web server, 2-grpc index server, 3-distributed web server")
+	mode         = flag.Int("mode", 1, "启动哪类服务。1-standalone web server, 2-i_grpc index server, 3-distributed web server")
 	rebuildIndex = flag.Bool("index", false, "server启动时是否需要重建索引")
 	port         = flag.Int("port", 0, "server的工作端口")
 	dbPath       = flag.String("dbPath", "", "正排索引数据的存放路径")
@@ -21,9 +21,9 @@ var (
 )
 
 var (
-	dbType      = types.BOLT                            //正排索引使用哪种KV数据库
-	csvFile     = util.RootPath + "data/bili_video.csv" //原始的数据文件，由它来创建索引
-	etcdServers = []string{"127.0.0.1:2379"}            //etcd集群的地址
+	dbType      = types.BOLT                              //正排索引使用哪种KV数据库
+	csvFile     = util.RootPath + "z_data/bili_video.csv" //原始的数据文件，由它来创建索引
+	etcdServers = []string{"127.0.0.1:2379"}              //etcd集群的地址
 )
 
 func StartGin() {
@@ -32,8 +32,8 @@ func StartGin() {
 
 	engine.Static("js", "example/views/js")
 	engine.Static("css", "example/views/css")
-	engine.Static("img", "example/views/img")
-	engine.StaticFile("/favicon.ico", "img/dqq.png")                                  //在url中访问文件/favicon.ico，相当于访问文件系统中的views/img/dqq.png文件
+	engine.Static("z_img", "example/views/z_img")
+	engine.StaticFile("/favicon.ico", "z_img/dqq.png")                                //在url中访问文件/favicon.ico，相当于访问文件系统中的views/z_img/dqq.png文件
 	engine.LoadHTMLFiles("example/views/search.html", "example/views/up_search.html") //使用这些.html文件时就不需要加路径了
 
 	engine.Use(handler.GetUserInfo)                                                                //全局中间件
@@ -63,8 +63,8 @@ func main() {
 	}
 }
 
-// go run ./example/main -mode=1 -index=true -port=5678 -dbPath=data/local_db/video_bolt
-// go run ./example/main -mode=2 -index=true -port=5600 -dbPath=data/local_db/video_bolt -totalWorkers=2 -workerIndex=0
-// go run ./example/main -mode=2 -index=true -port=5601 -dbPath=data/local_db/video_bolt -totalWorkers=2 -workerIndex=1
+// go run ./example/main -mode=1 -index=true -port=5678 -dbPath=z_data/local_db/video_bolt
+// go run ./example/main -mode=2 -index=true -port=5600 -dbPath=z_data/local_db/video_bolt -totalWorkers=2 -workerIndex=0
+// go run ./example/main -mode=2 -index=true -port=5601 -dbPath=z_data/local_db/video_bolt -totalWorkers=2 -workerIndex=1
 // 查看有没有注册上  etcdctl get --prefix "/radic"
 // go run ./example/main -mode=3 -index=false -port=5678

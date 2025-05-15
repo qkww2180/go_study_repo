@@ -49,4 +49,4 @@ func main() {
 	}
 }
 
-// go run ./grpc
+// go run ./i_grpc

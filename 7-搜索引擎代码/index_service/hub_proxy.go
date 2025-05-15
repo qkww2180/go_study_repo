@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/Orisun/radic/v2/util"
-	etcdv3 "go.etcd.io/etcd/client/v3"
+	etcdv3 "go.etcd.j_io/etcd/client/v3"
 	"golang.org/x/time/rate"
 )
 

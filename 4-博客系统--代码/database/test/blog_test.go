@@ -36,6 +36,6 @@ func TestUpdateBlog(t *testing.T) {
 	}
 }
 
-// go test -v .\database\test\ -run=^TestGetBlogById$ -count=1
-// go test -v .\database\test\ -run=^TestGetBlogByUserId$ -count=1
-// go test -v .\database\test\ -run=^TestUpdateBlog$ -count=1
+// go test -v .\g_database\test\ -run=^TestGetBlogById$ -count=1
+// go test -v .\g_database\test\ -run=^TestGetBlogByUserId$ -count=1
+// go test -v .\g_database\test\ -run=^TestUpdateBlog$ -count=1

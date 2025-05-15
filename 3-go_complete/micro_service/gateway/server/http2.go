@@ -47,7 +47,7 @@ func main() {
 
 	router := http.NewServeMux()
 	router.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.ProtoMajor == 2 && strings.Contains(r.Header.Get("Content-Type"), "application/grpc") { //client走的是grpc
+		if r.ProtoMajor == 2 && strings.Contains(r.Header.Get("Content-Type"), "application/i_grpc") { //client走的是grpc
 			log.Printf("走grpc")
 			log.Printf("请求路径 %s", r.RequestURI)
 			grpcHandler.ServeHTTP(w, r)
@@ -64,6 +64,6 @@ func main() {
 		SSLHost:     endpoint,
 	})
 	app := secureMiddleware.Handler(router)
-	//启动https（http+tls）服务
+	//启动https（h_http+tls）服务
 	http.ListenAndServeTLS(endpoint, util.RootPath+"config/keys/server.crt", util.RootPath+"config/keys/server.key", app)
 }

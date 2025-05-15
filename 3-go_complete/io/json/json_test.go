@@ -61,9 +61,9 @@ func BenchmarkSonicJson(b *testing.B) {
 	}
 }
 
-// go test -v ./io/json/ -run=^TestStdJson$ -count=1
-// go test -v ./io/json/ -run=^TestSonicJson$ -count=1
-// go test ./io/json/ -bench=^Benchmark.*Json$ -run=^$ -count=1 -benchmem -benchtime=3s
+// go test -v ./j_io/json/ -run=^TestStdJson$ -count=1
+// go test -v ./j_io/json/ -run=^TestSonicJson$ -count=1
+// go test ./j_io/json/ -bench=^Benchmark.*Json$ -run=^$ -count=1 -benchmem -benchtime=3s
 /**
 BenchmarkStdJson-8        520320              2278 ns/op
 BenchmarkSonicJson-8      904772              1401 ns/op

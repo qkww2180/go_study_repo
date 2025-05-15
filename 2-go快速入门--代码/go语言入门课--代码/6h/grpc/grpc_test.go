@@ -32,4 +32,4 @@ func TestService(t *testing.T) {
 	fmt.Printf("Name %s Age %d Height %.1f\n", resp.Name, resp.Age, resp.Height)
 }
 
-// go test -v ./grpc
+// go test -v ./i_grpc

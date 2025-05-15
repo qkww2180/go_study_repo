@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpc_middleware "github.com/i_grpc-ecosystem/go-grpc-middleware"
 	grpc "google.golang.org/grpc"
 )
 
@@ -66,7 +66,7 @@ func main() {
 		panic(err)
 	}
 	server := grpc.NewServer(
-		// grpc.UnaryInterceptor(timerAndLimitInterceptor), //grpc.UnaryInterceptor只能使用一次，即server端只能会用一个拦截器
+		// i_grpc.UnaryInterceptor(timerAndLimitInterceptor), //i_grpc.UnaryInterceptor只能使用一次，即server端只能会用一个拦截器
 		grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
 			timerInterceptor,
 			lLimitInterceptor,

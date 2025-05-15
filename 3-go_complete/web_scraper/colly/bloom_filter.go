@@ -12,7 +12,7 @@ var (
 )
 
 func init() {
-	bloomFilterFile = util.RootPath + "data/bili.bf"
+	bloomFilterFile = util.RootPath + "z_data/bili.bf"
 }
 
 func InitBloomFilter() {

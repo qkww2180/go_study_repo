@@ -6,7 +6,7 @@ import (
 )
 
 /**
-https = http + tls
+https = h_http + tls
 首先，生成证书和key。
 go run $GOROOT/src/crypto/tls/generate_cert.go --host="localhost"
 go run "D:/Program Files/Go/src/crypto/tls/generate_cert.go" --host="localhost"
@@ -46,7 +46,7 @@ func main() {
 	engine.GET("/", func(c *gin.Context) {
 		c.String(200, "欢迎来到HTTP Secure的世界")
 	})
-	//启动https（http+tls）服务
+	//启动https（h_http+tls）服务
 	// engine.RunTLS("localhost:5678", "config/keys/cert.pem", "config/keys/key.pem")
 	engine.RunTLS("localhost:5678", "config/keys/server.crt", "config/keys/server.priv")
 }

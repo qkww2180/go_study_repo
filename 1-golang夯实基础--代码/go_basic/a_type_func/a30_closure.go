@@ -101,4 +101,5 @@ func main30() {
 
 	fmt.Println(fibonacci_seq(10))
 	forRange()
+	funcTimer()
 }

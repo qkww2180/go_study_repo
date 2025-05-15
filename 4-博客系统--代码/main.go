@@ -39,7 +39,7 @@ func main() {
 	// [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached
 
 	// gin.SetMode(gin.ReleaseMode)   //GIN线上发布模式
-	// gin.DefaultWriter = io.Discard //禁止GIN的输出
+	// gin.DefaultWriter = j_io.Discard //禁止GIN的输出
 	// 修改静态资源不需要重启GIN，刷新页面即可
 	router := gin.Default()
 
@@ -48,8 +48,8 @@ func main() {
 		promhttp.Handler().ServeHTTP(ctx.Writer, ctx.Request)
 	})
 
-	router.Static("/js", "views/js")                       //在url是访问目录/js相当于访问文件系统中的views/js目录
-	router.StaticFile("/favicon.ico", "views/img/dqq.png") //在url中访问文件/favicon.ico，相当于访问文件系统中的views/img/dqq.png文件
+	router.Static("/js", "views/js")                         //在url是访问目录/js相当于访问文件系统中的views/js目录
+	router.StaticFile("/favicon.ico", "views/z_img/dqq.png") //在url中访问文件/favicon.ico，相当于访问文件系统中的views/z_img/dqq.png文件
 	// router.LoadHTMLFiles("views/login.html", "views/blog_list.html", "views/blog.html") //使用这些.html文件时就不需要加路径了
 	router.LoadHTMLGlob("views/*.html") //使用这些.html文件时就不需要加路径了
 

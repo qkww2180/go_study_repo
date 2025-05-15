@@ -71,8 +71,8 @@ func BenchmarkLogrus(b *testing.B) {
 	}
 }
 
-// go test -v ./io/logger/logrus_test.go -run=^TestLogrus$ -count=1
-// go test ./io/logger -bench=^BenchmarkLogrus$ -run=^$ -count=1 -benchmem -benchtime=2s
+// go test -v ./j_io/logger/logrus_test.go -run=^TestLogrus$ -count=1
+// go test ./j_io/logger -bench=^BenchmarkLogrus$ -run=^$ -count=1 -benchmem -benchtime=2s
 /**
 BenchmarkLogrus-8          25557            107739 ns/op            2715 B/op         30 allocs/op
 */

@@ -28,6 +28,6 @@ func TestConcurrentProcessDir(t *testing.T) {
 	fmt.Printf("ConcurrentProcessDir sum=%d, time %dms\n", sum, time.Since(begin).Milliseconds()) //4秒
 }
 
-//go test -v .\io\concurrent\ -run=^TestListDir$ -count=1
-//go test -v .\io\concurrent\ -run=^TestProcessDir$ -count=1
-//go test -v .\io\concurrent\ -run=^TestConcurrentProcessDir$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestListDir$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestProcessDir$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestConcurrentProcessDir$ -count=1

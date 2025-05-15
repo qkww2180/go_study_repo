@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.33.0
 // 	protoc        v3.19.6
-// source: doc.proto
+// source: z_doc.proto
 
 package types
 

@@ -41,14 +41,14 @@ func GetLoginUid(ctx *gin.Context) int {
 	// 	key := strings.TrimSpace(arr[0])
 	// 	value := strings.TrimSpace(arr[1])
 	// 	if key == "refresh_token" {
-	// 		token = database.GetToken(value)
+	// 		token = g_database.GetToken(value)
 	// 	}
 	// }
 	//或者直接使用封装好的Request.Cookies()
 	// for _, cookie := range ctx.Request.Cookies() {
 	// 	if cookie.Name == "refresh_token" {
 	// 		fmt.Println(cookie.Value)
-	// 		token = database.GetToken(cookie.Value)
+	// 		token = g_database.GetToken(cookie.Value)
 	// 	}
 	// }
 

@@ -38,7 +38,7 @@ func TestIp2Int(t *testing.T) {
 }
 
 func TestGenRandomIp(t *testing.T) {
-	fout, err := os.OpenFile(util.RootPath+"data/ip_topk/ip.txt", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0o644)
+	fout, err := os.OpenFile(util.RootPath+"z_data/ip_topk/ip.txt", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0o644)
 	if err != nil {
 		panic(err)
 	}

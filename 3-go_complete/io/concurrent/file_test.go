@@ -9,7 +9,7 @@ import (
 )
 
 func TestMultiFilterWriter(t *testing.T) {
-	outFile := util.RootPath + "data/file_con_mw.log"
+	outFile := util.RootPath + "z_data/file_con_mw.log"
 	os.Remove(outFile)
 	begin := time.Now()
 	MultiFilterWriter(outFile)
@@ -17,7 +17,7 @@ func TestMultiFilterWriter(t *testing.T) {
 }
 
 func TestOneFilterWriter(t *testing.T) {
-	outFile := util.RootPath + "data/file_con_sw.log"
+	outFile := util.RootPath + "z_data/file_con_sw.log"
 	os.Remove(outFile)
 	begin := time.Now()
 	fout, err := os.OpenFile(outFile, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)
@@ -30,7 +30,7 @@ func TestOneFilterWriter(t *testing.T) {
 }
 
 func TestSequentialWriter(t *testing.T) {
-	outFile := util.RootPath + "data/file_seq.log"
+	outFile := util.RootPath + "z_data/file_seq.log"
 	os.Remove(outFile)
 	begin := time.Now()
 	fout, err := os.OpenFile(outFile, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)
@@ -69,8 +69,8 @@ func TestSequentialReadOneFile(t *testing.T) {
 	fmt.Printf("串行解析文件sum=%d, time %dms\n", sum, time.Since(begin).Milliseconds())
 }
 
-//go test -v .\io\concurrent\ -run=^TestMultiFilterWriter$ -count=1
-//go test -v .\io\concurrent\ -run=^TestOneFilterWriter$ -count=1
-//go test -v .\io\concurrent\ -run=^TestSequentialWriter$ -count=1
-//go test -v .\io\concurrent\ -run=^TestConcurrentReadOneFile$ -count=1
-//go test -v .\io\concurrent\ -run=^TestSequentialReadOneFile$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestMultiFilterWriter$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestOneFilterWriter$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestSequentialWriter$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestConcurrentReadOneFile$ -count=1
+//go test -v .\j_io\concurrent\ -run=^TestSequentialReadOneFile$ -count=1

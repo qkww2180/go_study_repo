@@ -53,7 +53,7 @@ func BlogUpdate(ctx *gin.Context) {
 	// article := ctx.PostForm("article")
 	// bid, err := strconv.Atoi(blogId)
 	// if err != nil {
-	// 	ctx.String(http.StatusBadRequest, "invalid blog id")
+	// 	ctx.String(h_http.StatusBadRequest, "invalid blog id")
 	// 	return
 	// }
 

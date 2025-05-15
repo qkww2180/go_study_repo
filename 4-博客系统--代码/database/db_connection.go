@@ -11,7 +11,7 @@ import (
 	"github.com/go-redis/redis"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	ormlog "gorm.io/gorm/logger"
+	ormlog "gorm.j_io/gorm/logger"
 )
 
 var (
@@ -63,7 +63,7 @@ func RotateDBLog(db *gorm.DB, logfile string) error {
 		db.Logger = ormlog.New(
 			log.New(
 				newFile,
-				"\r\n", log.LstdFlags), // io writer
+				"\r\n", log.LstdFlags), // j_io writer
 			ormlog.Config{
 				SlowThreshold: 100 * time.Millisecond, // 慢 SQL 阈值
 				LogLevel:      ormlog.Info,            // Log level，Silent表示不输出日志
@@ -75,7 +75,7 @@ func RotateDBLog(db *gorm.DB, logfile string) error {
 }
 
 func createMysqlDB(dbname, host, user, pass string, port int) *gorm.DB {
-	// data source name 是 tester:123456@tcp(localhost:3306)/blog?charset=utf8mb4&parseTime=True&loc=Local
+	// z_data source name 是 tester:123456@tcp(localhost:3306)/blog?charset=utf8mb4&parseTime=True&loc=Local
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", user, pass, host, port, dbname) //mb4兼容emoji表情符号
 	var err error
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{PrepareStmt: true}) //启用PrepareStmt，SQL预编译，提高查询效率

@@ -32,7 +32,7 @@ func (r *RPC) Respond(resp interface{}, err error) {
 	r.RespChan <- RPCResponse{resp, err}
 }
 
-// 负责通过网络发送request和response。可以基于TCP、UDP、TLS、http、grpc等来实现。
+// 负责通过网络发送request和response。可以基于TCP、UDP、TLS、h_http、grpc等来实现。
 type Transporter interface {
 	Start(port int, server *Server)
 	AppendEntries(peer *Peer, req *AppendEntriesRequest) (*AppendEntriesResponse, error)
@@ -87,7 +87,7 @@ type ResponseInterface interface {
 
 // 不支持泛型方法，只支持泛型函数
 func post[E RequestInterface, S ResponseInterface](httpClient http.Client, peer *Peer, path string, req E, resp S) error {
-	slog.Debug("send http request", "type", reflect.TypeOf(req).Elem().Name(), "to server", peer.Id)
+	slog.Debug("send h_http request", "type", reflect.TypeOf(req).Elem().Name(), "to server", peer.Id)
 	bs, err := sonic.Marshal(req)
 	if err != nil {
 		slog.Error("marchal request failed", "request", reflect.TypeOf(req).Elem().Name(), "error", err)
@@ -117,7 +117,7 @@ func post[E RequestInterface, S ResponseInterface](httpClient http.Client, peer 
 		}
 		return fmt.Errorf("%s got abnormal code status %s msg %s", methodName, httpResp.Status, respBody)
 	} else {
-		slog.Debug("receive http response", "type", reflect.TypeOf(resp).Elem().Name(), "from server", peer.Id)
+		slog.Debug("receive h_http response", "type", reflect.TypeOf(resp).Elem().Name(), "from server", peer.Id)
 		err := sonic.Unmarshal(bs, resp)
 		if err != nil {
 			slog.Error("unmarshal response failed", "response", reflect.TypeOf(resp).Elem().Name(), "error", err)
@@ -138,7 +138,7 @@ func handler[E RequestInterface](server *Server, req E) http.HandlerFunc {
 			return
 		}
 
-		slog.Debug("receive http request", "type", reflect.TypeOf(req).Elem().Name(), "server", server.Id)
+		slog.Debug("receive h_http request", "type", reflect.TypeOf(req).Elem().Name(), "server", server.Id)
 		bs, err := io.ReadAll(r.Body)
 		if err != nil {
 			http.Error(w, "invalid json request", http.StatusBadRequest)
@@ -175,7 +175,7 @@ func handler[E RequestInterface](server *Server, req E) http.HandlerFunc {
 			http.Error(w, "marshal json failed", http.StatusInternalServerError)
 			return
 		}
-		slog.Debug("send http response", "type", reflect.TypeOf(resp).Elem().Name(), "server", server.Id)
+		slog.Debug("send h_http response", "type", reflect.TypeOf(resp).Elem().Name(), "server", server.Id)
 		w.Write(bs)
 	}
 }

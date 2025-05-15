@@ -143,7 +143,7 @@
   
         // add a tag element
   
-        var $tag = $('<span class="' + htmlEncode(tagClass) + (itemTitle !== null ? ('" title="' + itemTitle) : '') + '">' + htmlEncode(itemText) + '<span data-role="remove"></span></span>');
+        var $tag = $('<span class="' + htmlEncode(tagClass) + (itemTitle !== null ? ('" title="' + itemTitle) : '') + '">' + htmlEncode(itemText) + '<span z_data-role="remove"></span></span>');
         $tag.data('item', item);
         self.findInputWrapper().before($tag);
   
@@ -480,7 +480,7 @@
            var text = $input.val(),
            maxLengthReached = self.options.maxChars && text.length >= self.options.maxChars;
            if (self.options.freeInput && (keyCombinationInList(event, self.options.confirmKeys) || maxLengthReached)) {
-              // Only attempt to add a tag if there is data in the field
+              // Only attempt to add a tag if there is z_data in the field
               if (text.length !== 0) {
                  self.add(maxLengthReached ? text.substr(0, self.options.maxChars) : text);
                  $input.val('');
@@ -500,7 +500,7 @@
         }, self));
   
         // Remove icon clicked
-        self.$container.on('click', '[data-role=remove]', $.proxy(function(event) {
+        self.$container.on('click', '[z_data-role=remove]', $.proxy(function(event) {
           if (self.$element.attr('disabled')) {
             return;
           }
@@ -685,9 +685,9 @@
   
     /**
      * Initialize tagsinput behaviour on inputs and selects which have
-     * data-role=tagsinput
+     * z_data-role=tagsinput
      */
     $(function() {
-      $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
+      $("input[z_data-role=tagsinput], select[multiple][z_data-role=tagsinput]").tagsinput();
     });
   })(window.jQuery);

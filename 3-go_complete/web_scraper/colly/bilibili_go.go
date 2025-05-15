@@ -18,7 +18,7 @@ import (
 
 var (
 	videoBF     *algorithm.BloomFilter //把VideoID放入BloomFilter进行排重
-	videoBFfile = "data/b_video.bf"
+	videoBFfile = "z_data/b_video.bf"
 	bvidRegex   = regexp.MustCompile(`/video/(BV.+)/`)
 	blankRegx   = regexp.MustCompile(`\s+`)
 	goRegx      = regexp.MustCompile(`(^go\W+)|(\W+go$)|(\W+go\W+)`)
@@ -67,7 +67,7 @@ func main() {
 	})
 
 	//抓取的内容存入CSV文件
-	videoInfoFile := "data/b_go_video.csv"
+	videoInfoFile := "z_data/b_go_video.csv"
 	fout, err = os.OpenFile(videoInfoFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644) //append模式，程序重启后接着抓
 	if err != nil {
 		log.Printf("打开输出文件%s失败%s\n", videoInfoFile, err)

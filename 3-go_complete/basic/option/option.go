@@ -86,7 +86,7 @@ func constructUser() {
 	ageOpt := func(u *User) {
 		u.Age = 18
 	}
-	user2 := NewUser2(NewUserName("大乔乔"), UserAge(ageOpt)) // http.HandlerFunc()就是这种模式，把
+	user2 := NewUser2(NewUserName("大乔乔"), UserAge(ageOpt)) // h_http.HandlerFunc()就是这种模式，把
 	fmt.Printf("%+v\n", *user2)
 }
 

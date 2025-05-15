@@ -63,7 +63,7 @@ func TestHttp(t *testing.T) {
 	}
 	resp, err := client.Do(request)
 	if err != nil {
-		fmt.Printf("http rpc failed: %s\n", err)
+		fmt.Printf("h_http rpc failed: %s\n", err)
 		return
 	}
 	bs, err = io.ReadAll(resp.Body)
@@ -92,7 +92,7 @@ func BenchmarkGrpc(b *testing.B) {
 		ctx,
 		"127.0.0.1:5678",
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithBlock(), //grpc.WithBlock()直到连接真正建立才会返回，否则连接是异步建立的。因此grpc.WithBlock()和Timeout结合使用才有意义
+		grpc.WithBlock(), //i_grpc.WithBlock()直到连接真正建立才会返回，否则连接是异步建立的。因此grpc.WithBlock()和Timeout结合使用才有意义
 	)
 	if err != nil {
 		fmt.Printf("dial failed: %s", err)
@@ -142,7 +142,7 @@ func BenchmarkHttp(b *testing.B) {
 				//调用服务
 				resp, err := client.Do(request)
 				if err != nil {
-					fmt.Printf("http rpc failed: %s\n", err)
+					fmt.Printf("h_http rpc failed: %s\n", err)
 					return
 				}
 				//取得结果
@@ -161,11 +161,11 @@ func BenchmarkHttp(b *testing.B) {
 	}
 }
 
-// go test -v .\micro_service\grpc\client\ -run=^TestGrpc$ -count=1
-// go test -v .\micro_service\grpc\client\ -run=^TestHttp$ -count=1
-// go test .\micro_service\grpc\client\ -bench=^BenchmarkGrpc$ -run=^$ -count=1 -benchmem -benchtime=5s
-// go test .\micro_service\grpc\client\ -bench=^BenchmarkHttp$ -run=^$ -count=1 -benchmem -benchtime=5s
-// go test .\micro_service\grpc\client\ -bench=^Benchmark -run=^$ -count=1 -benchmem -benchtime=5s
+// go test -v .\micro_service\i_grpc\client\ -run=^TestGrpc$ -count=1
+// go test -v .\micro_service\i_grpc\client\ -run=^TestHttp$ -count=1
+// go test .\micro_service\i_grpc\client\ -bench=^BenchmarkGrpc$ -run=^$ -count=1 -benchmem -benchtime=5s
+// go test .\micro_service\i_grpc\client\ -bench=^BenchmarkHttp$ -run=^$ -count=1 -benchmem -benchtime=5s
+// go test .\micro_service\i_grpc\client\ -bench=^Benchmark -run=^$ -count=1 -benchmem -benchtime=5s
 
 /**
 10个并发

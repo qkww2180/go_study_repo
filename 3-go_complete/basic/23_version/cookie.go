@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// http request header
+// h_http request header
 //
 // Cookie: session_id=eddycjy; value=hello-world; lang=en; lang=zh-CN
 func parseCookie() {
@@ -18,7 +18,7 @@ func parseCookie() {
 	fmt.Println(strings.Repeat("-", 50))
 }
 
-// http response header
+// h_http response header
 //
 // Set-Cookie: session_id=eddycjy; MaxAge=0; lang=zh-CN; Domain=.eddycjy.com
 func parseSetCookie() {

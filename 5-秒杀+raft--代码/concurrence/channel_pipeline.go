@@ -84,10 +84,10 @@ func main8() {
 	//第1阶段，io密集型，并行执行提高速度
 	readWg.Add(2)
 	go func() {
-		readFile("data/rsa_private_key.pem")
+		readFile("z_data/rsa_private_key.pem")
 	}()
 	go func() {
-		readFile("data/rsa_public_key.pem")
+		readFile("z_data/rsa_public_key.pem")
 	}()
 
 	//第2阶段，cpu密集型，多分配几个内核线程
@@ -97,7 +97,7 @@ func main8() {
 	}
 
 	//第3阶段，汇总，写一个文件
-	go writeFile("data/digit.txt")
+	go writeFile("z_data/digit.txt")
 
 	//第1阶段结束后，关闭管道textChan
 	readWg.Wait()

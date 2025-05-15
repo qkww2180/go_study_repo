@@ -24,7 +24,7 @@ var (
 
 func download() {
 	//如果存储图片的目录不存在，就先创建该目录
-	imgFolder := util.RootPath + "data/baidu_img"
+	imgFolder := util.RootPath + "z_data/baidu_img"
 	if exists, _ := util.PathExists(imgFolder); !exists {
 		os.MkdirAll(imgFolder, 0o644)
 	}
@@ -116,7 +116,7 @@ func main2() {
 
 	for i, node := range nodes {
 		var src string
-		chromedp.Run(ctx, chromedp.AttributeValue("img", "src", &src, nil, chromedp.ByQuery, chromedp.FromNode(node))) //把图片URL放入imgCh
+		chromedp.Run(ctx, chromedp.AttributeValue("z_img", "src", &src, nil, chromedp.ByQuery, chromedp.FromNode(node))) //把图片URL放入imgCh
 		imgCh <- src
 		fmt.Println(i, src)
 	}

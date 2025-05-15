@@ -31,4 +31,4 @@ func TestJWT(t *testing.T) {
 	}
 }
 
-// go test -v .\encryption\jwt\ -run=^TestJWT$ -count=1
+// go test -v .\f_encryption\jwt\ -run=^TestJWT$ -count=1

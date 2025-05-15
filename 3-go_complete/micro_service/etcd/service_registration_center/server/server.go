@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	servicePort = flag.Int("port", 0, "grpc service port") // server监听本地的端口
+	servicePort = flag.Int("port", 0, "i_grpc service port") // server监听本地的端口
 )
 
 type MyServer struct {

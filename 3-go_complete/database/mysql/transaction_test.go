@@ -37,7 +37,7 @@ func TestInsertByTransaction2(t *testing.T) {
 	InsertByTransaction2(db)
 }
 
-// go test -v ./database/mysql -run=^TestInsert -count=1
+// go test -v ./g_database/mysql -run=^TestInsert -count=1
 
 /**
 === RUN   TestInsertOneByOne

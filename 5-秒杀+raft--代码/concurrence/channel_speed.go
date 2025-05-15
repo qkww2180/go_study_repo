@@ -72,10 +72,10 @@ func main7() {
 		pc_sync <- struct{}{}
 	}
 
-	go producer("data/1.txt")
-	go producer("data/2.txt")
-	go producer("data/3.txt")
-	go consumer("data/big.txt")
+	go producer("z_data/1.txt")
+	go producer("z_data/2.txt")
+	go producer("z_data/3.txt")
+	go consumer("z_data/big.txt")
 
 	<-all_over
 }

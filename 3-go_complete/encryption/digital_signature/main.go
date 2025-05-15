@@ -12,9 +12,9 @@ import (
 
 /**
 生成1024位的RSA私钥：
-openssl genrsa -out data/rsa_private_key.pem 1024
+openssl genrsa -out z_data/rsa_private_key.pem 1024
 根据私钥生成公钥：
-openssl rsa -in data/rsa_private_key.pem -pubout -out data/rsa_public_key.pem
+openssl rsa -in z_data/rsa_private_key.pem -pubout -out z_data/rsa_public_key.pem
 
 pem是一种标准格式，它通常包含页眉和页脚
 */
@@ -31,7 +31,7 @@ func DigitalSignature(plain string) []byte {
 	sha1.Write([]byte(plain))
 	digest := sha1.Sum([]byte("")) //参数一般置空即可，可以使用nil
 	// 从文件中读取私钥
-	privateKey, err := os.ReadFile("data/rsa_private_key.pem")
+	privateKey, err := os.ReadFile("z_data/rsa_private_key.pem")
 	checkError(err)
 	block, _ := pem.Decode(privateKey)                           //解析PEM文件
 	privInterface, err := x509.ParsePKCS8PrivateKey(block.Bytes) //解析私钥。目前的数字证书一般都是基于ITU（国际电信联盟）制定的X.509标准
@@ -49,7 +49,7 @@ func VerifySignature(plain string, signature []byte) bool {
 	sha1.Write([]byte(plain))
 	digest := sha1.Sum([]byte(""))
 	// 从文件中读取公钥
-	publicKey, err := os.ReadFile("data/rsa_public_key.pem")
+	publicKey, err := os.ReadFile("z_data/rsa_public_key.pem")
 	checkError(err)
 	block, _ := pem.Decode(publicKey)                         //解析PEM文件
 	pubInterface, err := x509.ParsePKIXPublicKey(block.Bytes) //解析公钥
@@ -66,4 +66,4 @@ func main() {
 	fmt.Println("验证数字签名", VerifySignature(plain, signature))
 }
 
-// go run .\encryption\digital_signature\
+// go run .\f_encryption\digital_signature\

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	etcdv3 "go.etcd.io/etcd/client/v3"
+	etcdv3 "go.etcd.j_io/etcd/client/v3"
 )
 
 const ConfigPrefix = "dqq_"

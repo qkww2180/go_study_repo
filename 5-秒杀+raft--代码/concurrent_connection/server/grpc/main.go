@@ -37,4 +37,4 @@ func main() {
 	}
 }
 
-// go run ./concurrent_connection/server/grpc
+// go run ./concurrent_connection/server/i_grpc

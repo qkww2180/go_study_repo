@@ -38,6 +38,6 @@ func TestDeleteUser(t *testing.T) {
 	database.DeleteUser(name)
 }
 
-// go test -v .\database\test\ -run=^TestUser$ -count=1
-// go test -v .\database\test\ -run=^TestCreateUser$ -count=1
-// go test -v .\database\test\ -run=^TestDeleteUser$ -count=1
+// go test -v .\g_database\test\ -run=^TestUser$ -count=1
+// go test -v .\g_database\test\ -run=^TestCreateUser$ -count=1
+// go test -v .\g_database\test\ -run=^TestDeleteUser$ -count=1

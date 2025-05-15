@@ -2,18 +2,18 @@ package main
 
 import "net/http"
 
-//FV是一个函数类型的变量
+// FV是一个函数类型的变量
 var FV = func(arg int) {}
 
-//FT是一种类型（FT没有成员变量）
+// FT是一种类型（FT没有成员变量）
 type FT func(arg int)
 
-//类型可以有自己的成员方法
+// 类型可以有自己的成员方法
 func (ft FT) Hello(arg int) {
 	ft(arg)
 }
 
-//类型可以实现接口
+// 类型可以实现接口
 type IFC interface {
 	Hello(arg int)
 }
@@ -44,7 +44,7 @@ func main4() {
 	funcInterface(FT(FV), 3)
 
 	//用http.Handle实现路由
-	http.Handle("/", http.HandlerFunc(Boy)) //http.HandlerFunc类似于FT，它实现了http.Handler接口
+	http.Handle("/", http.HandlerFunc(Boy)) //h_http.HandlerFunc类似于FT，它实现了http.Handler接口
 }
 
 func Boy(w http.ResponseWriter, r *http.Request) {

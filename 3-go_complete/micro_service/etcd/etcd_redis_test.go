@@ -7,7 +7,7 @@ import (
 	"time"
 
 	redis "github.com/redis/go-redis/v9"
-	etcdv3 "go.etcd.io/etcd/client/v3"
+	etcdv3 "go.etcd.j_io/etcd/client/v3"
 )
 
 func NewRedisClient() *redis.Client {

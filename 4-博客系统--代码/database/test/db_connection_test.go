@@ -20,4 +20,4 @@ func TestGetBlogDBConnection(t *testing.T) {
 	wg.Wait()
 }
 
-// go test -v .\database\test\ -run=^TestGetBlogDBConnection$ -count=1
+// go test -v .\g_database\test\ -run=^TestGetBlogDBConnection$ -count=1

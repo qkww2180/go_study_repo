@@ -39,7 +39,7 @@ const (
 // 所有的垃圾回收都是针对堆的
 func gc() {
 	// Write to the trace file.
-	f, _ := os.Create("data/trace.out")
+	f, _ := os.Create("z_data/trace.out")
 	trace.Start(f)
 	defer trace.Stop()
 
@@ -108,5 +108,5 @@ func performMemoryIntensiveTask(task int) int {
 
 func main16() {
 	// stack_heap() // go build -gcflags=-m ./basic/gc.go
-	gc() // 程序运行完之后生成一个文件data/trace.out, 然后执行 go tool trace data/trace.out
+	gc() // 程序运行完之后生成一个文件data/trace.out, 然后执行 go tool trace z_data/trace.out
 }

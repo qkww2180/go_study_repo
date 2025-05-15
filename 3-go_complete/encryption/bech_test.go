@@ -32,7 +32,7 @@ func BenchmarkAES(b *testing.B) {
 }
 
 func BenchmarkRSA(b *testing.B) {
-	publicKey, _ := os.ReadFile("../data/rsa_public_key.pem") //相对于encryption的路径，因为go test指定的路径是encryption
+	publicKey, _ := os.ReadFile("../z_data/rsa_public_key.pem") //相对于encryption的路径，因为go test指定的路径是encryption
 	block, _ := pem.Decode(publicKey)
 	pubInterface, _ := x509.ParsePKIXPublicKey(block.Bytes)
 	pub := pubInterface.(*rsa.PublicKey)
@@ -51,10 +51,10 @@ func BenchmarkHMACSHA256(b *testing.B) {
 	}
 }
 
-// go test ./encryption -bench=BenchmarkAES -run=^$ -count=1 -timeout=2s -benchmem
-// go test ./encryption -bench=BenchmarkRSA -run=^$ -count=1 -timeout=2s -benchmem
-// go test ./encryption -bench=BenchmarkHMACSHA256 -run=^$ -count=1 -timeout=2s -benchmem
-// go test ./encryption -bench=^Benchmark -run=^$ -count=1 -timeout=2s -benchmem
+// go test ./f_encryption -bench=BenchmarkAES -run=^$ -count=1 -timeout=2s -benchmem
+// go test ./f_encryption -bench=BenchmarkRSA -run=^$ -count=1 -timeout=2s -benchmem
+// go test ./f_encryption -bench=BenchmarkHMACSHA256 -run=^$ -count=1 -timeout=2s -benchmem
+// go test ./f_encryption -bench=^Benchmark -run=^$ -count=1 -timeout=2s -benchmem
 
 /**
 BenchmarkAES-8                   2743167               388.7 ns/op           560 B/op          6 allocs/op

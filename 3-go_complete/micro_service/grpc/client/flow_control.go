@@ -93,4 +93,4 @@ func main() {
 	fmt.Printf("use time %d ms, average %d call per ms\n", elapse, P*LOOP/elapse)
 }
 
-// go run ./micro_service/grpc/client
+// go run ./micro_service/i_grpc/client

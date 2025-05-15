@@ -58,7 +58,7 @@ func Init() {
 		writeOrderFinish <- struct{}{}
 	}()
 	go listenSignal()
-	go http.ListenAndServe("127.0.0.1:8080", nil) //准备接收http://127.0.0.1:8080/debug/pprof上的访问，或者go tool pprof -http="127.0.0.1:8089"  http://127.0.0.1:8080/debug/pprof/profile
+	go http.ListenAndServe("127.0.0.1:8080", nil) //准备接收http://127.0.0.1:8080/debug/pprof上的访问，或者go tool pprof -h_http="127.0.0.1:8089"  http://127.0.0.1:8080/debug/pprof/profile
 
 	if *queue == "kafka" {
 		handler.InitMQ() //使用MQ
@@ -72,14 +72,14 @@ func main() {
 	//[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached
 
 	gin.SetMode(gin.ReleaseMode) //GIN线上发布模式
-	// gin.DefaultWriter = io.Discard //禁止GIN的输出
+	// gin.DefaultWriter = j_io.Discard //禁止GIN的输出
 	// 修改静态资源不需要重启GIN，刷新页面即可
 	router := gin.Default()
 
 	router.Static("/js", "views/js") //在url是访问目录/js相当于访问文件系统中的views/js目录
-	router.Static("/img", "views/img")
-	router.StaticFile("/favicon.ico", "views/img/dqq.png") //在url中访问文件/favicon.ico，相当于访问文件系统中的views/img/dqq.png文件
-	router.LoadHTMLFiles("views/lottery.html")             //使用这些.html文件时就不需要加路径了
+	router.Static("/z_img", "views/z_img")
+	router.StaticFile("/favicon.ico", "views/z_img/dqq.png") //在url中访问文件/favicon.ico，相当于访问文件系统中的views/z_img/dqq.png文件
+	router.LoadHTMLFiles("views/lottery.html")               //使用这些.html文件时就不需要加路径了
 
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "lottery.html", nil)

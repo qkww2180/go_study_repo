@@ -34,5 +34,5 @@ func TestGetAllGiftsV2(t *testing.T) {
 	}
 }
 
-// go test -v .\database\test\ -run=^TestGetAllGiftsV1$ -count=1
-// go test -v .\database\test\ -run=^TestGetAllGiftsV2$ -count=1
+// go test -v .\g_database\test\ -run=^TestGetAllGiftsV1$ -count=1
+// go test -v .\g_database\test\ -run=^TestGetAllGiftsV2$ -count=1

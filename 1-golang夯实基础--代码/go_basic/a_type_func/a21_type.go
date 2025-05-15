@@ -21,7 +21,10 @@ func main21() {
 	var b Age
 	var c Tall
 
-	transport("BJ", "SH", b)
+	err := transport("BJ", "SH", b)
+	if err != nil {
+		return
+	}
 
 	c = a + Tall(10)
 	b = Age(a) + 10 //字面量不需要显式转为Age类型

@@ -73,7 +73,7 @@ func writeDiskSequentially() {
 		fmt.Printf("顺序写磁盘%dms\n", time.Since(t0).Milliseconds())
 	}()
 
-	fout, err := os.OpenFile(util.RootPath+"/data/arr.bin", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
+	fout, err := os.OpenFile(util.RootPath+"/z_data/arr.bin", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}
@@ -87,7 +87,7 @@ func readDiskSequentially() {
 		fmt.Printf("顺序读磁盘%dms\n", time.Since(t0).Milliseconds())
 	}()
 
-	fin, err := os.Open(util.RootPath + "/data/arr.bin")
+	fin, err := os.Open(util.RootPath + "/z_data/arr.bin")
 	if err != nil {
 		panic(err)
 	}
@@ -104,4 +104,4 @@ func main() {
 	readDiskSequentially()  //6ms
 }
 
-// go run .\io\sequential_io\
+// go run .\j_io\sequential_io\

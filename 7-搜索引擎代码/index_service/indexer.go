@@ -45,7 +45,7 @@ func (indexer *Indexer) LoadFromIndexFile() int {
 		indexer.reverseIndex.Add(doc)
 		return err
 	})
-	util.Log.Printf("load %d data from forward index %s", n, indexer.forwardIndex.GetDbPath())
+	util.Log.Printf("load %d z_data from forward index %s", n, indexer.forwardIndex.GetDbPath())
 	return int(n)
 }
 

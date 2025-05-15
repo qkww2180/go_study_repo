@@ -8,7 +8,7 @@ import (
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	ormlog "gorm.io/gorm/logger"
+	ormlog "gorm.j_io/gorm/logger"
 )
 
 var (
@@ -81,5 +81,5 @@ func BenchmarkQueryWithPrepare(b *testing.B) {
 	}
 }
 
-// go test -v ./database/mysql -run=^TestLoginSafe -count=1
-// go test ./database/mysql -bench=^BenchmarkQueryWith.*Prepare$ -run=^$ -count=1 -benchmem
+// go test -v ./g_database/mysql -run=^TestLoginSafe -count=1
+// go test ./g_database/mysql -bench=^BenchmarkQueryWith.*Prepare$ -run=^$ -count=1 -benchmem

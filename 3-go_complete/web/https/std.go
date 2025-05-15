@@ -1,7 +1,7 @@
 package main
 
 /**
-https = http + tls
+https = h_http + tls
 首先，生成证书和key。
 go run $GOROOT/src/crypto/tls/generate_cert.go --host="localhost"
 go run "D:/Program Files/Go/src/crypto/tls/generate_cert.go" --host="localhost"
@@ -33,8 +33,8 @@ func main1() {
 		SSLHost:     "localhost:5678",
 	})
 	app := secureMiddleware.Handler(myHandler)
-	//启动https（http+tls）服务
-	// http.ListenAndServeTLS("localhost:5678", "config/keys/cert.pem", "config/keys/key.pem", app)
+	//启动https（h_http+tls）服务
+	// h_http.ListenAndServeTLS("localhost:5678", "config/keys/cert.pem", "config/keys/key.pem", app)
 	http.ListenAndServeTLS("localhost:5678", "config/keys/server.crt", "config/keys/server.priv", app)
 }
 

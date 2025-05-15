@@ -18,14 +18,17 @@ func basicDefer() {
 }
 
 func defer_exe_time() (i int) {
-	i = 9
+	i = 1
+
 	defer func() { //defer后可以跟一个func
-		fmt.Printf("first i=%d\n", i) //打印5，而非9。充分理解“defer在函数返回前执行”的含义，不是在“return语句前执行defer”
+		fmt.Printf("first i=%d\n", i) //打印5，而非1。充分理解“defer在函数返回前执行”的含义，不是在“return语句前执行defer”
 	}()
+
 	defer func(i int) {
-		fmt.Printf("second i=%d\n", i) //打印9。在注册defer时i就传进去了
+		fmt.Printf("second i=%d\n", i) //打印1。在注册defer时i就传进去了
 	}(i)
-	defer fmt.Printf("third i=%d\n", i) //defer后不是跟func，而直接跟一条执行语句，则相关变量在注册defer时被拷贝或计算
+
+	defer fmt.Printf("third i=%d\n", i) //打印1。defer后不是跟func，而直接跟一条执行语句，则相关变量在注册defer时被拷贝或计算
 	return 5
 }
 

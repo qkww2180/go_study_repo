@@ -30,18 +30,18 @@ func StartWorkers() {
 
 		server := grpc.NewServer()
 		service := new(index_service.IndexServiceWorker)
-		service.Init(50000, types.BADGER, util.RootPath+"data/local_db/book_badger_"+strconv.Itoa(i))
+		service.Init(50000, types.BADGER, util.RootPath+"z_data/local_db/book_badger_"+strconv.Itoa(i))
 		service.Indexer.LoadFromIndexFile() //从文件中加载索引数据
 		// 注册服务的具体实现
 		index_service.RegisterIndexServiceServer(server, service)
 		service.Regist(etcdServers, port)
 		go func(port int) {
 			// 启动服务
-			fmt.Printf("start grpc server on port %d\n", port)
+			fmt.Printf("start i_grpc server on port %d\n", port)
 			err = server.Serve(lis) //Serve会一直阻塞，所以放到一个协程里异步执行
 			if err != nil {
 				service.Close()
-				fmt.Printf("start grpc server on port %d failed: %s\n", port, err)
+				fmt.Printf("start i_grpc server on port %d failed: %s\n", port, err)
 			} else {
 				workers = append(workers, service)
 			}

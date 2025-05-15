@@ -80,7 +80,7 @@ func Account(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "account.html", gin.H{"uid": ctx.GetString("uid")})
 	// 	return
 	// }
-	// ctx.String(http.StatusForbidden, "请登录")
+	// ctx.String(h_http.StatusForbidden, "请登录")
 }
 
 func Manage(ctx *gin.Context) {
@@ -88,7 +88,7 @@ func Manage(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "manage.html", gin.H{"uid": ctx.GetString("uid")})
 	// 	return
 	// }
-	// ctx.String(http.StatusForbidden, "请登录")
+	// ctx.String(h_http.StatusForbidden, "请登录")
 }
 
 func main() {

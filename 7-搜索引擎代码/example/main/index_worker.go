@@ -36,13 +36,13 @@ func GrpcIndexerInit() {
 	// 注册服务的具体实现
 	index_service.RegisterIndexServiceServer(server, service)
 	// 启动服务
-	fmt.Printf("start grpc server on port %d\n", *port)
+	fmt.Printf("start i_grpc server on port %d\n", *port)
 	//向注册中心注册自己，并周期性续命
 	service.Regist(etcdServers, *port)
 	err = server.Serve(lis) //Serve会一直阻塞，所以放到一个协程里异步执行
 	if err != nil {
 		service.Close()
-		fmt.Printf("start grpc server on port %d failed: %s\n", *port, err)
+		fmt.Printf("start i_grpc server on port %d failed: %s\n", *port, err)
 	}
 }
 

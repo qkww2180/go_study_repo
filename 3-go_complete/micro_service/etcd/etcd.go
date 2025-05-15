@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	etcdv3 "go.etcd.io/etcd/client/v3"
 	"go.etcd.io/etcd/client/v3/concurrency"
+	etcdv3 "go.etcd.j_io/etcd/client/v3"
 )
 
 var (

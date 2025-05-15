@@ -12,7 +12,7 @@ import (
 
 var (
 	dbType  = types.BOLT
-	dbPath  = util.RootPath + "data/local_db/video_bolt"
+	dbPath  = util.RootPath + "z_data/local_db/video_bolt"
 	indexer *index_service.Indexer
 )
 
@@ -27,7 +27,7 @@ func Init() {
 func TestBuildIndexFromFile(t *testing.T) {
 	Init()
 	defer indexer.Close()
-	csvFile := util.RootPath + "data/bili_video.csv"
+	csvFile := util.RootPath + "z_data/bili_video.csv"
 	demo.BuildIndexFromFile(csvFile, indexer, 0, 0)
 }
 

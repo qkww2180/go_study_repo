@@ -25,7 +25,7 @@ func TestBloomFilter(t *testing.T) {
 	}
 
 	//导出到文件，再从文件导入
-	file := util.RootPath + "data/bloom_filter.bin"
+	file := util.RootPath + "z_data/bloom_filter.bin"
 	if err := bf.Dump(file); err != nil {
 		fmt.Println(err)
 		t.Fail()

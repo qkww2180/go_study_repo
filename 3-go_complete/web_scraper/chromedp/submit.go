@@ -43,7 +43,7 @@ func main() {
 	if err := chromedp.Run(ctx, login); err != nil { //截屏数据保存到文件
 		log.Fatal(err)
 	}
-	if err := os.WriteFile("data/after_login.png", content, 0o644); err != nil {
+	if err := os.WriteFile("z_data/after_login.png", content, 0o644); err != nil {
 		log.Fatal(err)
 	}
 }

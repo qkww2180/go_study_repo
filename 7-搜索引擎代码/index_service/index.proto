@@ -4,7 +4,7 @@ package index_service;
 
 option go_package="./index_service;index_service"; //分号前面的go_out路径至少得包含一个.或一个/
 
-import "types/doc.proto";  //从-I指定的目录下寻找该proto文件
+import "types/z_doc.proto";  //从-I指定的目录下寻找该proto文件
 import "types/term_query.proto";
 
 

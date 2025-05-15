@@ -49,9 +49,9 @@ func DeserializeBook(v []byte) *Book {
 
 var (
 	// dbType=kvdb.BOLT
-	// dbPath=util.RootPath+"data/local_db/book_bolt"
+	// dbPath=util.RootPath+"z_data/local_db/book_bolt"
 	dbType = types.BADGER
-	dbPath = util.RootPath + "data/local_db/book_badger"
+	dbPath = util.RootPath + "z_data/local_db/book_badger"
 )
 
 func TestSearch(t *testing.T) {

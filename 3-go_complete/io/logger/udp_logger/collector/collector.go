@@ -87,4 +87,4 @@ func main() {
 	collector.Receive()
 }
 
-// go run .\io\logger\udp_logger\collector\
+// go run .\j_io\logger\udp_logger\collector\

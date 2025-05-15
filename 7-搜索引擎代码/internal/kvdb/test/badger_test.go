@@ -11,7 +11,7 @@ import (
 func TestBadger(t *testing.T) {
 	setup = func() {
 		var err error
-		db, err = kvdb.GetKvDb(types.BADGER, util.RootPath+"data/badger_db")
+		db, err = kvdb.GetKvDb(types.BADGER, util.RootPath+"z_data/badger_db")
 		if err != nil {
 			panic(err)
 		}

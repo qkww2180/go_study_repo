@@ -198,16 +198,16 @@ func main() {
 	fmt.Println(utf8)
 	fmt.Println(strings.Repeat("*", 50))
 
-	text_file := "io/file_type/a.txt"
+	text_file := "j_io/file_type/a.txt"
 	readTextFileByLine(text_file)
 	fmt.Println(strings.Repeat("*", 50))
 	splitTextFile(text_file)
 	fmt.Println(strings.Repeat("*", 50))
 
-	binary_file := "io/file_type/b.png"
+	binary_file := "j_io/file_type/b.png"
 	files := splitBinaryFile(binary_file)
-	mergedFile := "io/file_type/c.png"
+	mergedFile := "j_io/file_type/c.png"
 	mergeBinaryFile(files, mergedFile)
 }
 
-// go run .\io\file_type\
+// go run .\j_io\file_type\

@@ -16,4 +16,4 @@ func TestRedisToken(t *testing.T) {
 	}
 }
 
-// go test -v .\database\test\ -run=^TestRedisToken$ -count=1
+// go test -v .\g_database\test\ -run=^TestRedisToken$ -count=1

@@ -32,7 +32,7 @@ metadata:
   name: ingress-nginx-admission
   namespace: ingress-nginx
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: Role
 metadata:
   labels:
@@ -70,7 +70,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - networking.k8s.io
+  - networking.k8s.j_io
   resources:
   - ingresses
   verbs:
@@ -78,13 +78,13 @@ rules:
   - list
   - watch
 - apiGroups:
-  - networking.k8s.io
+  - networking.k8s.j_io
   resources:
   - ingresses/status
   verbs:
   - update
 - apiGroups:
-  - networking.k8s.io
+  - networking.k8s.j_io
   resources:
   - ingressclasses
   verbs:
@@ -92,7 +92,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - coordination.k8s.io
+  - coordination.k8s.j_io
   resourceNames:
   - ingress-nginx-leader
   resources:
@@ -101,7 +101,7 @@ rules:
   - get
   - update
 - apiGroups:
-  - coordination.k8s.io
+  - coordination.k8s.j_io
   resources:
   - leases
   verbs:
@@ -114,7 +114,7 @@ rules:
   - create
   - patch
 - apiGroups:
-  - discovery.k8s.io
+  - discovery.k8s.j_io
   resources:
   - endpointslices
   verbs:
@@ -122,7 +122,7 @@ rules:
   - watch
   - get
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: Role
 metadata:
   labels:
@@ -142,7 +142,7 @@ rules:
   - get
   - create
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: ClusterRole
 metadata:
   labels:
@@ -165,7 +165,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - coordination.k8s.io
+  - coordination.k8s.j_io
   resources:
   - leases
   verbs:
@@ -186,7 +186,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - networking.k8s.io
+  - networking.k8s.j_io
   resources:
   - ingresses
   verbs:
@@ -201,13 +201,13 @@ rules:
   - create
   - patch
 - apiGroups:
-  - networking.k8s.io
+  - networking.k8s.j_io
   resources:
   - ingresses/status
   verbs:
   - update
 - apiGroups:
-  - networking.k8s.io
+  - networking.k8s.j_io
   resources:
   - ingressclasses
   verbs:
@@ -215,7 +215,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - discovery.k8s.io
+  - discovery.k8s.j_io
   resources:
   - endpointslices
   verbs:
@@ -223,7 +223,7 @@ rules:
   - watch
   - get
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: ClusterRole
 metadata:
   labels:
@@ -235,14 +235,14 @@ metadata:
   name: ingress-nginx-admission
 rules:
 - apiGroups:
-  - admissionregistration.k8s.io
+  - admissionregistration.k8s.j_io
   resources:
   - validatingwebhookconfigurations
   verbs:
   - get
   - update
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: RoleBinding
 metadata:
   labels:
@@ -254,7 +254,7 @@ metadata:
   name: ingress-nginx
   namespace: ingress-nginx
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.k8s.j_io
   kind: Role
   name: ingress-nginx
 subjects:
@@ -262,7 +262,7 @@ subjects:
   name: ingress-nginx
   namespace: ingress-nginx
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: RoleBinding
 metadata:
   labels:
@@ -274,7 +274,7 @@ metadata:
   name: ingress-nginx-admission
   namespace: ingress-nginx
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.k8s.j_io
   kind: Role
   name: ingress-nginx-admission
 subjects:
@@ -282,7 +282,7 @@ subjects:
   name: ingress-nginx-admission
   namespace: ingress-nginx
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
@@ -292,7 +292,7 @@ metadata:
     app.kubernetes.io/version: 1.11.2
   name: ingress-nginx
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.k8s.j_io
   kind: ClusterRole
   name: ingress-nginx
 subjects:
@@ -300,7 +300,7 @@ subjects:
   name: ingress-nginx
   namespace: ingress-nginx
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.j_io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
@@ -311,7 +311,7 @@ metadata:
     app.kubernetes.io/version: 1.11.2
   name: ingress-nginx-admission
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.k8s.j_io
   kind: ClusterRole
   name: ingress-nginx-admission
 subjects:
@@ -349,11 +349,11 @@ spec:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - appProtocol: http
-    name: http
+  - appProtocol: h_http
+    name: h_http
     port: 80
     protocol: TCP
-    targetPort: http
+    targetPort: h_http
   - appProtocol: https
     name: https
     port: 443
@@ -424,7 +424,7 @@ spec:
       - args:
         - /nginx-ingress-controller
         - --election-id=ingress-nginx-leader
-        - --controller-class=k8s.io/ingress-nginx
+        - --controller-class=k8s.j_io/ingress-nginx
         - --ingress-class=nginx
         - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
         - --validating-webhook=:8443
@@ -444,7 +444,7 @@ spec:
               fieldPath: metadata.namespace
         - name: LD_PRELOAD
           value: /usr/local/lib/libmimalloc.so
-        image: registry.k8s.io/ingress-nginx/controller:v1.11.2@sha256:d5f8217feeac4887cb1ed21f27c2674e58be06bd8f5184cacea2a69abaf78dce
+        image: registry.k8s.j_io/ingress-nginx/controller:v1.11.2@sha256:d5f8217feeac4887cb1ed21f27c2674e58be06bd8f5184cacea2a69abaf78dce
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
@@ -465,7 +465,7 @@ spec:
         ports:
         - containerPort: 80
           hostPort: 80
-          name: http
+          name: h_http
           protocol: TCP
         - containerPort: 443
           hostPort: 443
@@ -512,10 +512,10 @@ spec:
       terminationGracePeriodSeconds: 0
       tolerations:
       - effect: NoSchedule
-        key: node-role.kubernetes.io/master
+        key: node-role.kubernetes.j_io/master
         operator: Equal
       - effect: NoSchedule
-        key: node-role.kubernetes.io/control-plane
+        key: node-role.kubernetes.j_io/control-plane
         operator: Equal
       volumes:
       - name: webhook-cert
@@ -555,7 +555,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.3@sha256:a320a50cc91bd15fd2d6fa6de58bd98c1bd64b9a6f926ce23a600d87043455a3
+        image: registry.k8s.j_io/ingress-nginx/kube-webhook-certgen:v1.4.3@sha256:a320a50cc91bd15fd2d6fa6de58bd98c1bd64b9a6f926ce23a600d87043455a3
         imagePullPolicy: IfNotPresent
         name: create
         securityContext:
@@ -608,7 +608,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.3@sha256:a320a50cc91bd15fd2d6fa6de58bd98c1bd64b9a6f926ce23a600d87043455a3
+        image: registry.k8s.j_io/ingress-nginx/kube-webhook-certgen:v1.4.3@sha256:a320a50cc91bd15fd2d6fa6de58bd98c1bd64b9a6f926ce23a600d87043455a3
         imagePullPolicy: IfNotPresent
         name: patch
         securityContext:
@@ -626,7 +626,7 @@ spec:
       restartPolicy: OnFailure
       serviceAccountName: ingress-nginx-admission
 ---
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.j_io/v1
 kind: IngressClass
 metadata:
   labels:
@@ -637,9 +637,9 @@ metadata:
     app.kubernetes.io/version: 1.11.2
   name: nginx
 spec:
-  controller: k8s.io/ingress-nginx
+  controller: k8s.j_io/ingress-nginx
 ---
-apiVersion: admissionregistration.k8s.io/v1
+apiVersion: admissionregistration.k8s.j_io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   labels:
@@ -659,10 +659,10 @@ webhooks:
       path: /networking/v1/ingresses
   failurePolicy: Fail
   matchPolicy: Equivalent
-  name: validate.nginx.ingress.kubernetes.io
+  name: validate.nginx.ingress.kubernetes.j_io
   rules:
   - apiGroups:
-    - networking.k8s.io
+    - networking.k8s.j_io
     apiVersions:
     - v1
     operations:

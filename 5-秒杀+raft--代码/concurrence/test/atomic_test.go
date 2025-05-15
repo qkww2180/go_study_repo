@@ -56,5 +56,5 @@ func TestAtomicLoad(t *testing.T) {
 	}
 }
 
-// go test -v ./concurrence/test -run=^TestReadDirect$ -count=1
-// go test -v ./concurrence/test -run=^TestAtomicLoad$ -count=1
+// go test -v ./d_concurrence/test -run=^TestReadDirect$ -count=1
+// go test -v ./d_concurrence/test -run=^TestAtomicLoad$ -count=1

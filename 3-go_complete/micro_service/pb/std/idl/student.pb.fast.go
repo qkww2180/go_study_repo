@@ -57,7 +57,7 @@ func (x *Student) FastRead(buf []byte, _type int8, number int32) (offset int, er
 	}
 	return offset, nil
 SkipFieldError:
-	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format z_data, error: %s", x, err)
 ReadFieldError:
 	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_Student[number], err)
 }

@@ -35,4 +35,4 @@ func main() {
 	fmt.Printf("receive response: %s\n", string(responseBytes[:read_len]))
 }
 
-// go run .\io\logger\udp_logger\udp_demo\client\client.go
+// go run .\j_io\logger\udp_logger\udp_demo\client\client.go

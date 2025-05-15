@@ -4,10 +4,10 @@ import (
 	"errors"
 	"sync/atomic"
 
-	bolt "go.etcd.io/bbolt"
+	bolt "go.etcd.j_io/bbolt"
 )
 
-var ErrNoData = errors.New("no data")
+var ErrNoData = errors.New("no z_data")
 
 // Bolt bolt store struct
 type Bolt struct {
@@ -51,7 +51,7 @@ func (s *Bolt) GetDbPath() string {
 	return s.path
 }
 
-// WALName returns the path to currently open database file.(超出接口规范，额外多出来的方法)
+// WALName returns the path to currently open g_database file.(超出接口规范，额外多出来的方法)
 func (s *Bolt) WALName() string {
 	return s.db.Path()
 }
@@ -181,7 +181,7 @@ func (s *Bolt) IterKey(fn func(k []byte) error) int64 {
 	return atomic.LoadInt64(&total)
 }
 
-// Close releases all database resources. All transactions must be closed before closing the database.
+// Close releases all g_database resources. All transactions must be closed before closing the g_database.
 func (s *Bolt) Close() error {
 	return s.db.Close()
 }

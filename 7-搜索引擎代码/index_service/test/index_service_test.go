@@ -29,13 +29,13 @@ func StartService() {
 
 	server := grpc.NewServer()
 	service := new(index_service.IndexServiceWorker)
-	service.Init(50000, types.BADGER, util.RootPath+"data/local_db/book_badger") //不进行服务注册，client直连server
-	service.Indexer.LoadFromIndexFile()                                          //从文件中加载索引数据
+	service.Init(50000, types.BADGER, util.RootPath+"z_data/local_db/book_badger") //不进行服务注册，client直连server
+	service.Indexer.LoadFromIndexFile()                                            //从文件中加载索引数据
 	// 注册服务的具体实现
 	index_service.RegisterIndexServiceServer(server, service)
 	go func() {
 		// 启动服务
-		fmt.Printf("start grpc server on port %d\n", servicePort)
+		fmt.Printf("start i_grpc server on port %d\n", servicePort)
 		err = server.Serve(lis) //Serve会一直阻塞，所以放到一个协程里异步执行
 		if err != nil {
 			panic(err)

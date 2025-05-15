@@ -39,8 +39,8 @@ func TestHashTableValue(t *testing.T) {
 	hashtableValue(context.Background(), client)
 }
 
-// go test -v ./database/redis -run=^TestStringValue$ -count=1
-// go test -v ./database/redis -run=^TestListValue$ -count=1
-// go test -v ./database/redis -run=^TestSetgValue$ -count=1
-// go test -v ./database/redis -run=^TestZSetValue$ -count=1
-// go test -v ./database/redis -run=^TestHashTableValue$ -count=1
+// go test -v ./g_database/redis -run=^TestStringValue$ -count=1
+// go test -v ./g_database/redis -run=^TestListValue$ -count=1
+// go test -v ./g_database/redis -run=^TestSetgValue$ -count=1
+// go test -v ./g_database/redis -run=^TestZSetValue$ -count=1
+// go test -v ./g_database/redis -run=^TestHashTableValue$ -count=1

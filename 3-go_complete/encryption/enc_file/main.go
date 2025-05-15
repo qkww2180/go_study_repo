@@ -101,10 +101,10 @@ func FileDecryption(infile string, outfile string, algo int, key []byte) error {
 
 func main() {
 	keyAES := []byte("ir489u58ir489u54") //AES算法key必须是长度为16的byte数组(128bit)。对称加密，加密的解密使用相同的key
-	plainFile := util.RootPath + "/data/学生信息表.xlsx"
+	plainFile := util.RootPath + "/z_data/学生信息表.xlsx"
 
-	encryptFileAES := util.RootPath + "/data/学生信息表.aes"
-	plainFileAES := util.RootPath + "/data/学生信息表(解密aes).xlsx"
+	encryptFileAES := util.RootPath + "/z_data/学生信息表.aes"
+	plainFileAES := util.RootPath + "/z_data/学生信息表(解密aes).xlsx"
 	if err := FileEncryption(plainFile, encryptFileAES, AES, keyAES); err != nil {
 		fmt.Println(err)
 	} else {
@@ -114,8 +114,8 @@ func main() {
 	}
 
 	keyDES := []byte("ir489u58") //DES算法key必须是长度为8的byte数组(64bit)
-	encryptFileDES := util.RootPath + "/data/学生信息表.des"
-	plainFileDES := util.RootPath + "/data/学生信息表(解密des).xlsx"
+	encryptFileDES := util.RootPath + "/z_data/学生信息表.des"
+	plainFileDES := util.RootPath + "/z_data/学生信息表(解密des).xlsx"
 	if err := FileEncryption(plainFile, encryptFileDES, DES, keyDES); err != nil {
 		fmt.Println(err)
 	} else {
@@ -125,4 +125,4 @@ func main() {
 	}
 }
 
-// go run .\encryption\file\
+// go run .\f_encryption\file\

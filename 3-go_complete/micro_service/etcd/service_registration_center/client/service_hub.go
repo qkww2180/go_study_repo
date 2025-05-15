@@ -9,7 +9,7 @@ import (
 
 	"dqq/micro_service/etcd/service_registration_center"
 
-	etcdv3 "go.etcd.io/etcd/client/v3"
+	etcdv3 "go.etcd.j_io/etcd/client/v3"
 )
 
 // 服务注册中心

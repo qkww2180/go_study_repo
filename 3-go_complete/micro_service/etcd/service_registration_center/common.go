@@ -9,16 +9,16 @@ var (
 	ETCD_CLUSTER = []string{"127.0.0.1:2379"}
 )
 
-//  /service/grpc/hello_service/ip1
-//  /service/grpc/hello_service/ip2
-//  /service/grpc/hello_service/ip3
+//  /service/i_grpc/hello_service/ip1
+//  /service/i_grpc/hello_service/ip2
+//  /service/i_grpc/hello_service/ip3
 
-//  /service/grpc/login_service/ip1
-//  /service/grpc/login_service/ip2
-//  /service/grpc/login_service/ip3
+//  /service/i_grpc/login_service/ip1
+//  /service/i_grpc/login_service/ip2
+//  /service/i_grpc/login_service/ip3
 
 const (
-	SERVICE_ROOT_PATH = "/service/grpc" //etcd key的前缀
+	SERVICE_ROOT_PATH = "/service/i_grpc" //etcd key的前缀
 	HELLO_SERVICE     = "hello_service"
 )
 

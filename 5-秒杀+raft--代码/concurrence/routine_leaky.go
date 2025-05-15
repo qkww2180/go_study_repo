@@ -47,7 +47,7 @@ func main18() {
 		}
 	}()
 
-	//直接在游览器中访问http://127.0.0.1:3456/debug/pprof，里面有一项是goroutine。在package net/http/pprof的init()函数里指定了/debug/pprof的Handler
+	//直接在游览器中访问http://127.0.0.1:3456/debug/pprof，里面有一项是goroutine。在package net/h_http/pprof的init()函数里指定了/debug/pprof的Handler
 	go http.ListenAndServe("127.0.0.1:3456", nil) //在线prof
 
 	gin.DefaultWriter = io.Discard

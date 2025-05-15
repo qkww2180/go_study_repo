@@ -11,7 +11,7 @@ import (
 	"github.com/go-redis/redis"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	ormlog "gorm.io/gorm/logger"
+	ormlog "gorm.j_io/gorm/logger"
 )
 
 // 建立数据库连接。代码讲解参见《双Token博客系统》

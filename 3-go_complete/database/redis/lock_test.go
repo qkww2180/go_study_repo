@@ -6,4 +6,4 @@ func TestLockRace(t *testing.T) {
 	LockRace(client)
 }
 
-// go test -v ./database/redis -run=^TestLockRace$ -count=1
+// go test -v ./g_database/redis -run=^TestLockRace$ -count=1

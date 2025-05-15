@@ -25,7 +25,7 @@ func TestTraverse2(t *testing.T) {
 	Traverse2(db)
 }
 
-// go test -v ./database/mysql -run=^TestTraverse -count=1
+// go test -v ./g_database/mysql -run=^TestTraverse -count=1
 
 /**
 === RUN   TestTraverse1

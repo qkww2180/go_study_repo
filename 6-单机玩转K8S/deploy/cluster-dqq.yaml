@@ -1,5 +1,5 @@
 kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
+apiVersion: kind.x-k8s.j_io/v1alpha4
 name: dqq
 nodes:
   - role: control-plane    # 控制平面在逻辑上只有一个，但物理节点可以有多个，一般为奇数个

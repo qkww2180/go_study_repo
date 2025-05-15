@@ -28,4 +28,4 @@ func TestProvisionalOrder(t *testing.T) {
 	}
 }
 
-// go test -v .\database\test\ -run=^TestProvisionalOrder$ -count=1
+// go test -v .\g_database\test\ -run=^TestProvisionalOrder$ -count=1

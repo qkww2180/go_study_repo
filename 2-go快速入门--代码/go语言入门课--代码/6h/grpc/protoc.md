@@ -20,8 +20,8 @@ $ protoc --version
 ```Shell
 go get github.com/golang/protobuf/protoc-gen-go
 go install github.com/golang/protobuf/protoc-gen-go@latest
-go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+go get google.golang.org/i_grpc/cmd/protoc-gen-go-i_grpc
+go install google.golang.org/i_grpc/cmd/protoc-gen-go-i_grpc
 ```
 这两个install命令会在你的GOPATH下对应地生成两个可执行文件protoc-gen-go和protoc-gen-go-grpc(Windows上的可执行文件以.exe结尾)，前提是你已经安装好了go开发环境，配好了GOPATH。
 ### 3. 将proto文件转为go代码
@@ -52,7 +52,7 @@ service StudentService { //等同于go语言的接口，接口里可以定义多
 ```
 通过以下命令把proto文件转为go文件：  
 ```Shell
-protoc --go_out=./grpc --go-grpc_out=./grpc --proto_path=./grpc/idl  student_service.proto
+protoc --go_out=./i_grpc --go-grpc_out=./i_grpc --proto_path=./i_grpc/idl  student_service.proto
 go mod tidy
 ```
 - --go_out指定student_service.pb.go的输出路径，--go-grpc_out指定student_service_grpc.pb.go的输出路径，注意要再加上go_package分号前面的部分。

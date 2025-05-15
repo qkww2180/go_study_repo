@@ -16,7 +16,7 @@ func limitReader() {
 		fmt.Printf("read %s\n", string(content[:n])) //daqiao
 	}
 	if _, err := limitReader.Read(content); err == io.EOF { //从limitReader里已读不出任何内容
-		fmt.Println("no more data available")
+		fmt.Println("no more z_data available")
 	}
 }
 
@@ -48,7 +48,7 @@ func teeReader() {
 	var writer bytes.Buffer
 	reader := strings.NewReader("黄梅时节家家雨\n")
 	teeReader := io.TeeReader(reader, &writer) //从reader里读取的内容既会进入teeReader，也会进入writer
-	// io.Copy(os.Stdout, reader)  如果打开此行，则reader里的内容已经被读完了，下面2行不会输出任何内容
+	// j_io.Copy(os.Stdout, reader)  如果打开此行，则reader里的内容已经被读完了，下面2行不会输出任何内容
 	io.Copy(os.Stdout, teeReader) //如果把此行注释掉，则没有任何数据经过teeReader，writer里也不会有任何内容
 	fmt.Print(writer.String())
 }
@@ -78,4 +78,4 @@ func main() {
 	pipeIO()
 }
 
-// go run ./io/advanced_io
+// go run ./j_io/advanced_io

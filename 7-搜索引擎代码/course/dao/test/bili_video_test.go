@@ -8,7 +8,7 @@ import (
 	"github.com/Orisun/radic/v2/util"
 )
 
-var csvFile = util.RootPath + "data/bili_video.csv"
+var csvFile = util.RootPath + "z_data/bili_video.csv"
 
 func TestDumpDataFromFile2DB1(t *testing.T) {
 	dao.DumpDataFromFile2DB1(csvFile) //DumpDataFromFile2DB1 use time 117240 ms

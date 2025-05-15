@@ -104,11 +104,11 @@ func BenchmarkTopKByPartition(b *testing.B) {
 }
 
 func TestFindFreqIpFromBigFile(t *testing.T) {
-	topk1 := algorithm.FindFreqIpFromBigFile(util.RootPath+"data/ip_topk/ip.txt", 10)
+	topk1 := algorithm.FindFreqIpFromBigFile(util.RootPath+"z_data/ip_topk/ip.txt", 10)
 
 	//用原始的方法统计出现次数最多的ip
 	countMap := make(map[string]int, 10000)
-	fin, err := os.Open(util.RootPath + "data/ip_topk/ip.txt")
+	fin, err := os.Open(util.RootPath + "z_data/ip_topk/ip.txt")
 	if err != nil {
 		panic(err)
 	}

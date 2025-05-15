@@ -69,4 +69,4 @@ func main() {
 	fmt.Println("验证工作量", VerifyBlock(&block))
 }
 
-// go run .\encryption\block_chain\
+// go run .\f_encryption\block_chain\

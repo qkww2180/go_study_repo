@@ -41,7 +41,7 @@ func InitClient() {
 		ctx,
 		"127.0.0.1:5678",
 		grpc.WithTransportCredentials(insecure.NewCredentials()), //Credential即使为空，也必须设置
-		grpc.WithBlock(), //grpc.WithBlock()直到连接真正建立才会返回，否则连接是异步建立的。因此grpc.WithBlock()和Timeout结合使用才有意义。server端正常的情况下使用grpc.WithBlock()得到的connection.GetState()为READY，不使用grpc.WithBlock()得到的connection.GetState()为IDEL
+		grpc.WithBlock(), //i_grpc.WithBlock()直到连接真正建立才会返回，否则连接是异步建立的。因此grpc.WithBlock()和Timeout结合使用才有意义。server端正常的情况下使用grpc.WithBlock()得到的connection.GetState()为READY，不使用grpc.WithBlock()得到的connection.GetState()为IDEL
 		grpc.WithDefaultCallOptions(grpc.MaxCallSendMsgSize(10<<20), grpc.MaxCallRecvMsgSize(10<<20)), //默认情况下SendMsg上限是MaxInt32，RecvMsg上限是4M，这里都修改为10M
 	)
 	if err != nil {
@@ -195,4 +195,4 @@ func main1() {
 	streaming()
 }
 
-// go run ./micro_service/grpc/client
+// go run ./micro_service/i_grpc/client

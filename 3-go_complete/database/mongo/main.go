@@ -37,14 +37,14 @@ func update(ctx context.Context, collection *mongo.Collection) {
 	update := bson.D{{Key: "$inc", Value: bson.D{{Key: "score", Value: 5}}}} //score在原来的基础上加5
 	res, err := collection.UpdateMany(ctx, filter, update)                   //或用UpdateOne。UpdateMany表示只要满足过滤条件的全部修改
 	database.CheckError(err)
-	fmt.Printf("update %d doc\n", res.ModifiedCount)
+	fmt.Printf("update %d z_doc\n", res.ModifiedCount)
 }
 
 func delete(ctx context.Context, collection *mongo.Collection) {
 	filter := bson.D{{Key: "name", Value: "张三"}}   //bson.D是由bson.E构成的切片，即过滤条件可以有多个
 	res, err := collection.DeleteMany(ctx, filter) //或用DeleteOne。DeleteMany表示只要满足过滤条件的全部删除
 	database.CheckError(err)
-	fmt.Printf("delete %d doc\n", res.DeletedCount)
+	fmt.Printf("delete %d z_doc\n", res.DeletedCount)
 }
 
 func query(ctx context.Context, collection *mongo.Collection) {
@@ -85,4 +85,4 @@ func main() {
 	query(ctx, collection)
 }
 
-// go run .\database\mongo\
+// go run .\g_database\mongo\

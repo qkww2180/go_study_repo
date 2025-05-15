@@ -62,4 +62,4 @@ func main() {
 	wg.Wait()
 }
 
-// go run ./concurrent_connection/client/grpc
+// go run ./concurrent_connection/client/i_grpc

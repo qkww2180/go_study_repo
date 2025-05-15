@@ -128,4 +128,4 @@ func main() {
 	fmt.Println(counts)
 }
 
-// go run .\database\clickhouse\
+// go run .\g_database\clickhouse\

@@ -54,7 +54,7 @@ func main2() {
 
 	// 用http.Handle()实现路由，这样http.ListenAndServe()的第二个参数Handler可以传nil
 	// for path, handler := range router.mux {
-	// 	http.Handle(path, handler)
+	// 	h_http.Handle(path, handler)
 	// }
 
 	if err := http.ListenAndServe("127.0.0.1:5678", router); err != nil {

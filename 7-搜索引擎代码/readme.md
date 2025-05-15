@@ -46,7 +46,7 @@ func DeserializeBook(v []byte) *Book {
 初始化radic  
 ```go
 dbType := types.BADGER   //或types.BOLT
-dbPath := "data/local_db/book_badger"   //正排索引的存储路径
+dbPath := "z_data/local_db/book_badger"   //正排索引的存储路径
 docNum := 10000    //预估索引里将存储多少文档
 radic := new(index_service.Indexer)
 if err := radic.Init(docNum, dbType, dbPath); err != nil {

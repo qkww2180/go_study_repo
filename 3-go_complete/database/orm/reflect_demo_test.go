@@ -19,6 +19,6 @@ func TestExecMethod(t *testing.T) {
 	ExecMethod(Student{})
 }
 
-// go test -v ./database/orm/ -run=^TestPrintFieldInfo$ -count=1
-// go test -v ./database/orm/ -run=^TestPrintFieldValue$ -count=1
-// go test -v ./database/orm/ -run=^TestExecMethod$ -count=1
+// go test -v ./g_database/orm/ -run=^TestPrintFieldInfo$ -count=1
+// go test -v ./g_database/orm/ -run=^TestPrintFieldValue$ -count=1
+// go test -v ./g_database/orm/ -run=^TestExecMethod$ -count=1

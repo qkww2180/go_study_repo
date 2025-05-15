@@ -54,7 +54,7 @@ func GetName(ctx *gin.Context) {
 	}
 	stu := GetStudentInfo(param)
 	ctx.String(http.StatusOK, stu.Name) //StatusOK即200
-	// ctx.JSON(http.StatusOK,stu)
+	// ctx.JSON(h_http.StatusOK,stu)
 	return
 }
 
@@ -66,7 +66,7 @@ func GetAge(ctx *gin.Context) {
 	}
 	stu := GetStudentInfo(param)
 	ctx.String(http.StatusOK, strconv.Itoa(stu.Age)) //StatusOK即200
-	// ctx.JSON(http.StatusOK,stu)
+	// ctx.JSON(h_http.StatusOK,stu)
 	return
 }
 
@@ -79,7 +79,7 @@ func GetHeight(ctx *gin.Context) {
 	}
 	stu := GetStudentInfo(request.StudentId)
 	ctx.String(http.StatusOK, strconv.FormatFloat(float64(stu.Height), 'f', 1, 64)) //保留1位小数
-	// ctx.JSON(http.StatusOK, stu)
+	// ctx.JSON(h_http.StatusOK, stu)
 	return
 }
 

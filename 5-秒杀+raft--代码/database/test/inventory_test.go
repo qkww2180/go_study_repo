@@ -47,5 +47,5 @@ func TestReduceInventory(t *testing.T) {
 	fmt.Printf("fail %d\n", fail)
 }
 
-// go test -v .\database\test\ -run=^TestGetAllGiftInventory$ -count=1
-// go test -v .\database\test\ -run=^TestReduceInventory$ -count=1
+// go test -v .\g_database\test\ -run=^TestGetAllGiftInventory$ -count=1
+// go test -v .\g_database\test\ -run=^TestReduceInventory$ -count=1

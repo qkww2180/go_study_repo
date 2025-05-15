@@ -21,5 +21,5 @@ func TestZlib(t *testing.T) {
 	decompress(ZLIB, compressFile, flatFile2)
 }
 
-//go test -v .\io\compress\ -run=^TestGzip$ -count=1
-//go test -v .\io\compress\ -run=^TestZlib$ -count=1
+//go test -v .\j_io\compress\ -run=^TestGzip$ -count=1
+//go test -v .\j_io\compress\ -run=^TestZlib$ -count=1

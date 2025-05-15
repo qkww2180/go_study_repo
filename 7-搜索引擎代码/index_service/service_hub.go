@@ -8,7 +8,7 @@ import (
 
 	"github.com/Orisun/radic/v2/util"
 	"go.etcd.io/etcd/api/v3/v3rpc/rpctypes"
-	etcdv3 "go.etcd.io/etcd/client/v3"
+	etcdv3 "go.etcd.j_io/etcd/client/v3"
 )
 
 const (

@@ -20,7 +20,7 @@ type CommentResponse struct {
 			Total int `json:"total"` //总共多少评论
 		} `json:"page"`
 		List []Comment `json:"list"`
-	} `json:"data"`
+	} `json:"z_data"`
 }
 
 type Comment struct {
@@ -45,7 +45,7 @@ func main6() {
 	c.OnRequest(func(r *colly.Request) {
 		r.Headers.Set("Cookie", config.GetString("bili.cookie")) //cookie里存着登录后的凭证
 	})
-	commentFile := "data/my_comment.csv"
+	commentFile := "z_data/my_comment.csv"
 	fout, err := os.OpenFile(commentFile, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o644)
 	if err != nil {
 		log.Printf("打开输出文件%s失败%s\n", commentFile, err)

@@ -78,4 +78,4 @@ func main() {
 	wg.Wait()
 }
 
-// go run .\io\logger\udp_logger\producer\
+// go run .\j_io\logger\udp_logger\producer\

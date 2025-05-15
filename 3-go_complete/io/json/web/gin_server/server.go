@@ -20,4 +20,4 @@ func main() {
 	router.Run("127.0.0.1:5678")
 }
 
-// go run .\io\json\web\gin_server\
+// go run .\j_io\json\web\gin_server\

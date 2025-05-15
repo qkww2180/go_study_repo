@@ -50,4 +50,4 @@ func TestGetGormFields(t *testing.T) {
 	fmt.Println(cols)
 }
 
-// go test -v ./database/orm/ -run=^TestGetGormFields$ -count=1
+// go test -v ./g_database/orm/ -run=^TestGetGormFields$ -count=1

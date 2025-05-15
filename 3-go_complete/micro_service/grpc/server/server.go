@@ -172,4 +172,4 @@ func (*MyServer) SayHello(ctx context.Context, request *idl.HelloRequest) (*idl.
 	return resp, nil
 }
 
-// go run ./micro_service/grpc/server
+// go run ./micro_service/i_grpc/server

@@ -45,7 +45,7 @@ type douyinData struct {
 }
 
 type douyinResponse struct {
-	Data    douyinData `json:"data"`
+	Data    douyinData `json:"z_data"`
 	Message string     `json:"message"`
 }
 

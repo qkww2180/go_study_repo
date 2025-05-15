@@ -13,4 +13,4 @@ func TestCreateOrder(t *testing.T) {
 	}
 }
 
-// go test -v .\database\test\ -run=^TestCreateOrder$ -count=1
+// go test -v .\g_database\test\ -run=^TestCreateOrder$ -count=1

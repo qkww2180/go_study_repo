@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-//接口是一组行为规范的集合
+// Transporter 接口是一组行为规范的集合
 type Transporter interface { //定义接口。通常接口名以er结尾
 	//接口里面只定义方法，不定义变量
 	move(src string, dest string) (int, error) //方法名 (参数列表) 返回值列表
@@ -21,7 +21,7 @@ type Car struct { //定义结构体时无需要显式声明它要实现什么接
 	price int
 }
 
-//只要结构体拥有接口里声明的所有方法，就称该结构体“实现了接口”
+// 只要结构体拥有接口里声明的所有方法，就称该结构体“实现了接口”
 func (car *Car) move(src string, dest string) (int, error) {
 	car.price++
 	fmt.Printf("从%s到%s用%s运输需要%d元\n", src, dest, car.name, car.price)
@@ -42,7 +42,7 @@ func (car Car) whistle(n int) int {
 	return n
 }
 
-//结构体可以拥有接口之外的方法
+// 结构体可以拥有接口之外的方法
 func (car Car) GetName() string {
 	return car.name
 }
@@ -66,7 +66,7 @@ func (ship Shiper) whistle(n int) int {
 	return n
 }
 
-//一个struct可以同时实现多个接口
+// 一个struct可以同时实现多个接口
 func (ship Shiper) displacement() int {
 	return ship.tonage
 }

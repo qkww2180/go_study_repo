@@ -34,4 +34,4 @@ func main() {
 	Info("%d + %d = %d", 4, 4, 8)
 }
 
-// go run ./io/logger
+// go run ./j_io/logger

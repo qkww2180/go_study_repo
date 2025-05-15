@@ -42,4 +42,4 @@ func main() {
 	fmt.Printf("write response %s to %s\n", response, remoteAddr.String())
 }
 
-// go run .\io\logger\udp_logger\udp_demo\server\server.go
+// go run .\j_io\logger\udp_logger\udp_demo\server\server.go

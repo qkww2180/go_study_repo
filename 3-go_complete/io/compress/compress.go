@@ -66,7 +66,7 @@ func compress(compressAlgo int, inFile, outFile string) {
 	// for {
 	// 	n, err := fin.Read(bs)
 	// 	if err != nil {
-	// 		if err == io.EOF {
+	// 		if err == j_io.EOF {
 	// 			break
 	// 		} else {
 	// 			fmt.Println(err)

@@ -22,13 +22,13 @@ func timeMW() gin.HandlerFunc {
 func limitMW() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		limitCh <- struct{}{} //并发度达到100时就会阻塞
-		log.Printf("concurrence %d\n", len(limitCh))
+		log.Printf("d_concurrence %d\n", len(limitCh))
 		ctx.Next()
 		<-limitCh
 	}
 }
 
-func boy(ctx *gin.Context) { //gin.Context里包含了http.ResponseWriter和*http.Request
+func boy(ctx *gin.Context) { //gin.Context里包含了http.ResponseWriter和*h_http.Request
 	ctx.String(http.StatusOK, "hi boy ")
 }
 

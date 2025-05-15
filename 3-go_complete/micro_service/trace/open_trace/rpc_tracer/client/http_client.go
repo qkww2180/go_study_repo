@@ -34,7 +34,7 @@ func greet(ctx context.Context) string {
 	client := http.Client{}
 	request, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
-		log.Printf("new http request failed: %s", err)
+		log.Printf("new h_http request failed: %s", err)
 		return ""
 	}
 	request.Header.Set("trace_id", ctx.Value("trace_id").(string))
@@ -64,13 +64,13 @@ func greet(ctx context.Context) string {
 
 	response, err := client.Do(request)
 	if err != nil {
-		log.Printf("call http server failed: %s", err)
+		log.Printf("call h_http server failed: %s", err)
 		return ""
 	}
 	defer response.Body.Close()
 	bs, err := io.ReadAll(response.Body)
 	if err != nil {
-		log.Printf("read http response failed: %s", err)
+		log.Printf("read h_http response failed: %s", err)
 		return ""
 	}
 	return string(bs)

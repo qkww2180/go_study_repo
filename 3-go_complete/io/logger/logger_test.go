@@ -9,13 +9,13 @@ import (
 )
 
 func InitLogger(logFile string, logLevel int) {
-	logger.SetLogFile(logFile)   //指定日志文件 daqiaoqiao_golang/log/io.log，log文件夹需要先创建好
+	logger.SetLogFile(logFile)   //指定日志文件 daqiaoqiao_golang/log/j_io.log，log文件夹需要先创建好
 	logger.SetLogLevel(logLevel) //指定最低日志级别为debug
 }
 
 // 测试自己实现的logger
 func TestLogger(t *testing.T) {
-	InitLogger("io.log", logger.DebugLevel)
+	InitLogger("j_io.log", logger.DebugLevel)
 
 	file := "go.mod"
 	fin, err := os.Open(util.RootPath + file)
@@ -45,8 +45,8 @@ func BenchmarkLogger(b *testing.B) {
 	}
 }
 
-// go test -v ./io/logger/logger_test.go -run=^TestLogger$ -count=1
-// go test ./io/logger -bench=^BenchmarkLogger$ -run=^$ -count=1 -benchmem -benchtime=2s
+// go test -v ./j_io/logger/logger_test.go -run=^TestLogger$ -count=1
+// go test ./j_io/logger -bench=^BenchmarkLogger$ -run=^$ -count=1 -benchmem -benchtime=2s
 /**
 BenchmarkLogger-8         149134             13536 ns/op            1024 B/op          7 allocs/op
 自己实现的logger速度是logrus的8倍。

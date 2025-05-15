@@ -92,11 +92,11 @@ func WriteWithBuffer(outFile string) {
 
 func main() {
 	t1 := time.Now()
-	WriteDirect(util.RootPath + "/data/no_buffer.txt")
+	WriteDirect(util.RootPath + "/z_data/no_buffer.txt")
 	t2 := time.Now()
-	WriteWithBuffer(util.RootPath + "/data/with_buffer.txt")
+	WriteWithBuffer(util.RootPath + "/z_data/with_buffer.txt")
 	t3 := time.Now()
 	fmt.Printf("不用缓冲耗时%dms，用缓冲耗时%dms\n", t2.Sub(t1).Milliseconds(), t3.Sub(t2).Milliseconds())
 }
 
-// go run .\io\buffer\
+// go run .\j_io\buffer\

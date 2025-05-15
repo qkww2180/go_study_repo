@@ -44,14 +44,14 @@ func (sentinel *Sentinel) GetGrpcConn(endpoint string) *grpc.ClientConn {
 	conn, err := grpc.NewClient(
 		endpoint,
 		grpc.WithTransportCredentials(insecure.NewCredentials()), //Credential即使为空，也必须设置
-		//grpc.Dial是异步连接的，连接状态为正在连接。但如果你设置了 grpc.WithBlock 选项，就会阻塞等待（等待握手成功）。另外你需要注意，当未设置 grpc.WithBlock 时，ctx 超时控制对其无任何效果。
-		// grpc.WithBlock(),
+		//i_grpc.Dial是异步连接的，连接状态为正在连接。但如果你设置了 i_grpc.WithBlock 选项，就会阻塞等待（等待握手成功）。另外你需要注意，当未设置 i_grpc.WithBlock 时，ctx 超时控制对其无任何效果。
+		// i_grpc.WithBlock(),
 	)
 	if err != nil {
 		util.Log.Printf("dial %s failed: %s", endpoint, err)
 		return nil
 	}
-	util.Log.Printf("connect to grpc server %s", endpoint)
+	util.Log.Printf("connect to i_grpc server %s", endpoint)
 	sentinel.connPool.Store(endpoint, conn)
 	return conn
 }
@@ -71,7 +71,7 @@ func (sentinel *Sentinel) AddDoc(doc types.Document) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-	util.Log.Printf("add %d doc to worker %s", affected.Count, endpoint)
+	util.Log.Printf("add %d z_doc to worker %s", affected.Count, endpoint)
 	return int(affected.Count), nil
 }
 
@@ -98,7 +98,7 @@ func (sentinel *Sentinel) DeleteDoc(docId string) int {
 				client := NewIndexServiceClient(conn)
 				affected, err := client.DeleteDoc(context.Background(), &DocId{DocId: docId})
 				if err != nil {
-					util.Log.Printf("delete doc %s from worker %s failed: %s", docId, endpoint, err)
+					util.Log.Printf("delete z_doc %s from worker %s failed: %s", docId, endpoint, err)
 				} else {
 					if affected.Count > 0 {
 						atomic.AddInt32(&n, affected.Count)
@@ -133,7 +133,7 @@ func (sentinel *Sentinel) Search(query *types.TermQuery, onFlag uint64, offFlag 
 					util.Log.Printf("search from cluster failed: %s", err)
 				} else {
 					if len(result.Results) > 0 {
-						util.Log.Printf("search %d doc from worker %s", len(result.Results), endpoint)
+						util.Log.Printf("search %d z_doc from worker %s", len(result.Results), endpoint)
 						for _, doc := range result.Results {
 							resultCh <- doc //resultCh容量有限，若只写不读，resultCh写满后会永远阻塞，协程无法退出
 						}
@@ -177,7 +177,7 @@ func (sentinel *Sentinel) Count() int {
 				client := NewIndexServiceClient(conn)
 				affected, err := client.Count(context.Background(), new(CountRequest))
 				if err != nil {
-					util.Log.Printf("get doc count from worker %s failed: %s", endpoint, err)
+					util.Log.Printf("get z_doc count from worker %s failed: %s", endpoint, err)
 				} else {
 					if affected.Count > 0 {
 						atomic.AddInt32(&n, affected.Count)

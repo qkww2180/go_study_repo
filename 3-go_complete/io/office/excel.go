@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	fin, err := excelize.OpenFile(util.RootPath + "/data/学生信息表.xlsx")
+	fin, err := excelize.OpenFile(util.RootPath + "/z_data/学生信息表.xlsx")
 	if err != nil {
 		log.Printf("打开Excel文件失败: %v", err)
 		return
