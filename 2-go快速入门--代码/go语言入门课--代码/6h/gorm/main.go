@@ -18,7 +18,7 @@ type Student struct {
 	Address    string    `gorm:"column:addr"`
 	Score      float32   `gorm:"column:score"`
 	Enrollment time.Time `gorm:"column:enrollment;type:date"`
-	Gender     int       `sql:"-"` //不做映射（比如表里没有这个字段，但结构体需要有它）
+	//Gender     int       `sql:"-"` //不做映射（比如表里没有这个字段，但结构体需要有它）
 }
 
 // 使用TableName()来修改默认的表名
@@ -172,18 +172,18 @@ func main() {
 	//想要正确的处理time.Time ，您需要带上parseTime参数
 	//要支持完整的UTF-8编码，您需要将charset=utf8更改为charset=utf8mb4
 	//loc=Local采用机器本地的时区
-	dsn := "tester:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:root123@tcp(172.22.0.24:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
 	query(db)
-	// update(db)
-	// create(db)
-	// delete(db)
-	// transaction(db)
-	// transaction2(db)
-	// db.Where("name like ?", "学生%").Delete(&Student{}) //删除name以"学生"为前缀的记录
+	//update(db)
+	//create(db)
+	//delete(db)
+	//transaction(db)
+	//transaction2(db)
+	db.Where("name like ?", "学生%").Delete(&Student{}) //删除name以"学生"为前缀的记录
 }
 
 // go run ./gorm

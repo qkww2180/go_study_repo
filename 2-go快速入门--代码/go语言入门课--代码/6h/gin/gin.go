@@ -26,6 +26,7 @@ func GetStudentInfo(studentId string) Student {
 		Password: "",
 		DB:       0,
 	})
+
 	ctx := context.TODO()
 	stu := Student{}
 	for field, value := range client.HGetAll(ctx, "学生1").Val() {
