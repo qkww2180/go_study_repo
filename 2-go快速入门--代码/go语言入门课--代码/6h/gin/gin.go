@@ -56,6 +56,7 @@ func GetName(ctx *gin.Context) {
 	stu := GetStudentInfo(param)
 	ctx.String(http.StatusOK, stu.Name) //StatusOK即200
 	// ctx.JSON(h_http.StatusOK,stu)
+
 	return
 }
 
